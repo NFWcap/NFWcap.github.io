@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2018/11 | 帽子不太白</title>
+  <title>Hexo博客使用指南I：发布/删除文章 | 帽子不太白</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -167,78 +167,134 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bJ_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/11/05/Hexo博客使用指南I：发布-删除文章/">Hexo博客使用指南I：发布/删除文章</a></h4>
-                            
-                            <p><time datetime="2018-11-05T12:28:57.000Z"><a href="/2018/11/05/Hexo博客使用指南I：发布-删除文章/">2018-11-05</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/11/05/我的第一篇博客/">我的第一篇博客</a></h4>
-                            
-                            <p><time datetime="2018-11-05T12:01:22.000Z"><a href="/2018/11/05/我的第一篇博客/">2018-11-05</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-11-05T12:28:57.000Z" itemprop="datePublished">
+          2018-11-05
+      </time>
+    
+    
+    | 
+    <a href='/tags/hexo指南/'>hexo指南</a>
+    
+    
+</span>
+                <h1>Hexo博客使用指南I：发布/删除文章</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<p>关于如何在hexo博客上发布和删除博文</p>
+<a id="more"></a>
+<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><ol>
+<li><p>进入博客目录，在 /source/_posts 文件夹下直接建立一个.md文件</p>
+<blockquote>
+<p>hexo new “这里填入文章的标题”</p>
+</blockquote>
+</li>
+<li><p>.md文件注意使用带有makedown语法的编辑器打开，对文章进行编辑，你可以在Hexo-&gt;Source-&gt;_post目录下看到你新创建的那个文章，还有一个配套的文件夹，里面放这边博文的图片资源 </p>
+<p><strong>文章标题，日期，标签，分类</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 文章标题</span><br><span class="line">date: 2015-11-13 15:40:25</span><br><span class="line">tags: 标签</span><br><span class="line">categories: 分类</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文章插入图片需要用到一个Hexo的插件，首先cd到hexo的根目录下</p>
+<blockquote>
+<p>npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a> –save</p>
+</blockquote>
+<p>然后把图片放入对应文章的配套文件夹下，比如1.png</p>
+<blockquote>
+<p><img src="github-hexo-blog/1.png" alt=""></p>
+</blockquote>
+<p>如果要进行代码书写，代码样式可自行下载</p>
+</li>
+</ol>
+<h3 id="发布新建文章"><a href="#发布新建文章" class="headerlink" title="发布新建文章"></a>发布新建文章</h3><p>文章写好后，直接在git bash中执行以下命令即可直接发布文章</p>
+<blockquote>
+<p>hexo d -g</p>
+</blockquote>
+<p>如果发布的时候出现错误</p>
+<blockquote>
+<p>ERROR Deployer not found: git</p>
+</blockquote>
+<p>执行</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<h3 id="删除文章"><a href="#删除文章" class="headerlink" title="删除文章"></a>删除文章</h3><p>删除文章的过程一样也很简单，先删除本地文件，然后通过生成和部署命令进而将远程仓库中的文件也一并删除。具体来说，以最开始默认形成的helloworld.md这篇文章为例。</p>
+<p>首先进入到source / _post 文件夹中，找到helloworld.md文件，在本地直接执行删除。然后依次执行</p>
+<blockquote>
+<p>hexo d -g</p>
+</blockquote>
+<p>再去主页查看你就会发现你的博客上面已经空空如也了，这就是如何删除文章的方法。</p>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>笑到最后</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/11/05/我的第一篇博客/">
+        我的第一篇博客 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
