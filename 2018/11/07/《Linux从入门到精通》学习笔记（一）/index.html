@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Git学习笔记（一） | 帽子不太白</title>
+  <title>《Linux从入门到精通》学习笔记（一） | 帽子不太白</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -173,107 +173,29 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2018-11-07T06:50:20.000Z" itemprop="datePublished">
+      <time datetime="2018-11-07T11:38:37.000Z" itemprop="datePublished">
           2018-11-07
       </time>
     
     
     | 
-    <a href='/tags/git学习/'>git学习</a>
+    <a href='/tags/Linux学习/'>Linux学习</a>
     
     
 </span>
-                <h1>Git学习笔记（一）</h1>
+                <h1>《Linux从入门到精通》学习笔记（一）</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>学习git的第一步</p>
-<a id="more"></a>
-<h1 id="Git学习笔记（一）"><a href="#Git学习笔记（一）" class="headerlink" title="Git学习笔记（一）"></a>Git学习笔记（一）</h1><p>Git是世界上最先进的分布式控制系统，通俗的来说就可以利用Git来控制github库和利用hexo挂载在github上的博客文章等内容</p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><p>版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。</p>
-<ol>
-<li>创建一个空目录</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir learngit</span><br><span class="line">$ cd learngit</span><br><span class="line">$ pwd</span><br><span class="line">/c/Users/Administrator/learngit</span><br></pre></td></tr></table></figure>
-<p><code>pwd</code> 命令用于显示当前的目录</p>
-<ol start="2">
-<li>通过<code>git init</code>命令把这个目录变成Git可以管理的仓库：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository in</span><br><span class="line">/c/Users/Administrator/learngit/.git/</span><br></pre></td></tr></table></figure>
-<p>多出来的<code>.git</code>是git来追踪管理版本库的，不能手动修改这个目录的文件，容易把Git仓库破坏</p>
-<p>如果没有看到<code>.git</code>目录，那是因为这个目录默认是隐藏的，用<code>ls -ah</code>命令就可以看见。</p>
-<h3 id="把文件添加到版本库"><a href="#把文件添加到版本库" class="headerlink" title="把文件添加到版本库"></a>把文件添加到版本库</h3><p>编写一个<code>readme.txt</code>文件放到<code>learngit</code>目录下，注意只有在这个目录下git才能找到</p>
-<p>添加文件到Git仓库，分两步：</p>
-<ol>
-<li><p>使用命令<code>git add &lt;file&gt;</code>，注意，可反复多次使用，添加多个文件；</p>
-</li>
-<li><p>使用命令<code>git commit -m &lt;message&gt;</code>，完成。</p>
-<p><code>git commit</code>命令，<code>-m</code>后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。 </p>
-</li>
-</ol>
-<h3 id="查看工作区状态和和内容"><a href="#查看工作区状态和和内容" class="headerlink" title="查看工作区状态和和内容"></a>查看工作区状态和和内容</h3><ul>
-<li><p>要随时掌握工作区的状态，使用<code>git status</code>命令。</p>
-</li>
-<li><p>如果<code>git status</code>告诉你有文件被修改过，用<code>git diff</code>可以查看修改内容。</p>
-<p><code>git diff</code>顾名思义就是查看difference，显示的格式正是Unix通用的diff格式，可以从上面的命令输出看到 </p>
-</li>
-<li><p>如果有文件已经被修改需要提交，就使用上面的步骤</p>
-</li>
-</ul>
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><ul>
-<li><p><code>HEAD</code>指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。</p>
-<ul>
-<li>上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code> </li>
-<li><code>commit_id</code>指代的是版本号，确定要返回的版本，可以只写前几位</li>
-</ul>
-</li>
-<li><p>穿梭前，用<code>git log</code>可以查看提交历史，以便确定要回退到哪个版本。</p>
-<ul>
-<li><p>如果嫌输出信息太多，看得眼花缭乱，可以试试加上<code>--pretty=oneline</code>参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git log --pretty=oneline</span><br><span class="line">1094adb7b9b3807259d8cb349e7df1d4d6477073 (HEAD -&gt; master) append GPL</span><br><span class="line">e475afc93c209a690c39c13a46716e8fa000c366 add distributed</span><br><span class="line">eaadf4e385e865d25c48e7ca9c8395c3f7dfaef0 wrote a readme file</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</p>
-</li>
-</ul>
-<h3 id="工作区和暂存区的概念"><a href="#工作区和暂存区的概念" class="headerlink" title="工作区和暂存区的概念"></a>工作区和暂存区的概念</h3><p>参考廖雪峰老师的git教程</p>
-<p><code>https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013745374151782eb658c5a5ca454eaa451661275886c6000</code></p>
-<h3 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h3><p>git是跟踪并管理修改的，如果你对文件做了第一次修改，并<code>git add</code></p>
-<p>在做第二次修改，在进行<code>git commit</code>会出现第二次修改没有被提交的情况，因为当你用<code>git add</code>命令后，在工作区的第一次修改被放入暂存区，准备提交，但是，在工作区的第二次修改并没有放入暂存区，所以，<code>git commit</code>只负责把暂存区的修改提交了，也就是第一次的修改被提交了，第二次的修改不会被提交。 </p>
-<p>正确的顺序应该为：</p>
-<p>第一次修改 -&gt; <code>git add</code> -&gt; 第二次修改 -&gt; <code>git add</code> -&gt; <code>git commit</code> </p>
-<p>用<code>git diff HEAD -- readme.txt</code>命令可以查看工作区和版本库里面最新版本的区别 </p>
-<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><ul>
-<li>当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</li>
-<li>当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二步按上面的步骤操作。</li>
-<li>已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节</li>
-</ul>
-<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>当想要删除一个文件时，使用<code>rm</code>命令删除以后</p>
-<p>此时工作区和版本库不一致，<code>git status</code>命令会告诉你那些文件被删除了：</p>
-<ol>
-<li><p>确实要从版本库中删除该文件，那就用命令<code>git rm</code>删掉，并且<code>git commit</code> </p>
-</li>
-<li><p>删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- test.txt</span><br></pre></td></tr></table></figure>
-<p><code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
-</li>
-</ol>
-<hr>
-<p> 以上参考廖雪峰老师的Git教程，感谢廖老师</p>
-
+      		
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/11/07/《Linux从入门到精通》学习笔记（一）/" style="float: left;">
-        ← 《Linux从入门到精通》学习笔记（一）
-    </a>
     
-    
-    <a class="pull-right" href="/2018/11/05/Hexo博客使用指南I：发布-删除文章/">
-        Hexo博客使用指南I：发布/删除文章 →
+    <a class="pull-right" href="/2018/11/07/Git学习笔记（一）/">
+        Git学习笔记（一） →
     </a>
     
 </nav>
