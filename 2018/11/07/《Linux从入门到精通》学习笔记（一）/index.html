@@ -187,7 +187,141 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		
+      		<p>shell的基本命令</p>
+<a id="more"></a>
+<h3 id="Shell简介"><a href="#Shell简介" class="headerlink" title="Shell简介"></a>Shell简介</h3><p>命令行指的是供用户输入命令的界面，其本身只是接受输入，然后把命令传给命令解释器。而命令解释器就是shell。通俗来讲Shell是一个程序，它在用户和操作系统之间提供了一个面向行的可交互接口。用户在命令行中输入命令，运行在后台的Shell把命令转换成指令代码发送给操作系统</p>
+<h4 id="命令行补全和通配符"><a href="#命令行补全和通配符" class="headerlink" title="命令行补全和通配符"></a>命令行补全和通配符</h4><ul>
+<li><p>在输入文件名时，只需要输入前面几个字符，然后按下Tab，Shell就会自动把文件名补全；如果已键入的的字符开头文件不止一个，可以连续Tab，Shell会以列表的形式给出所有以键入字符开头的文件</p>
+</li>
+<li><p>通配符专用符号：“*”，“？”，“[]”</p>
+<ul>
+<li><p>” * “ 用于匹配文件名中任意长度的字符，例如需要列出目录中所有的C++文件（通常以.cpp结尾）</p>
+<p><code>ls *.cpp</code></p>
+</li>
+<li><p>“ ？ ” ：和“*”匹配任意长度的字符串不同，“？”只匹配一个字符</p>
+</li>
+<li><p>“[]” ：用于匹配出现在方括号内的字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ls</span><br><span class="line">text1 text2 text3 text4 textA</span><br><span class="line">$ls text[1A]</span><br><span class="line">text1 textA</span><br></pre></td></tr></table></figure>
+<p>也开始使用<code>-</code>来表示范围，例如<code>text[1-3]</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="查看目录和文件"><a href="#查看目录和文件" class="headerlink" title="查看目录和文件"></a>查看目录和文件</h4><ul>
+<li><p>显示当前目录：<code>pwd</code></p>
+</li>
+<li><p>改变目录：<code>cd</code></p>
+<ul>
+<li><code>$cd ..</code>返回上一级目录</li>
+<li><code>$cd ../..</code>直接进入根目录</li>
+<li><code>$cd</code>或者<code>$cd ~</code>回到自己的用户主目录</li>
+<li><code>..</code>代表当前目录的上一级目录，<code>.</code>代表当前目录，<code>~</code>代表用户主目录</li>
+</ul>
+</li>
+<li><p>列出目录内容</p>
+<ul>
+<li><p><code>ls</code>用于列出当前目录下的所有文件和子目录</p>
+</li>
+<li><p><code>ls -F</code>在每个列出的目录后面加上<code>/</code>，在可执行文件后面加上<code>*</code>，在链接文件后面加上<code>@</code>，有助于用户在无法显示颜色的终端上使用</p>
+</li>
+<li><p><code>ls -a</code>用于显示所有文件</p>
+</li>
+<li><p><code>ls -l</code>用来查看文件的各项属性，例如</p>
+<p><code>drwxr-xr-x  2  root root 4096 2018-11-07  21:35  conf.avail</code></p>
+<p>从左到右依次为：</p>
+<ol>
+<li>文件的权限标志</li>
+<li>文件的链接个数</li>
+<li>文件所有者的用户名</li>
+<li>该用户所在的用户组组名</li>
+<li>文件的大小</li>
+<li>最后一次修改时的日期</li>
+<li>在最后一次修改的时间</li>
+<li>文件名</li>
+</ol>
+</li>
+<li><p><code>ls /etc/init.d</code> ls后跟上路径可以查看该子目录的内容</p>
+</li>
+<li><p>命令的选项可以用组合使用，指定多个选项使用<code>-</code>；例如<code>ls -aF</code></p>
+</li>
+</ul>
+</li>
+<li><p>列出目录内容</p>
+<ul>
+<li><code>dir</code>比<code>ls</code>功能少，其余一样</li>
+<li><code>vdir</code>相当于<code>ls -l</code>指令，默认情况下列出目录和文件的完整信息</li>
+</ul>
+</li>
+<li><p>查看文本文件</p>
+<ul>
+<li><code>cat</code>用于查看文件内容（通常是文本文件），后跟文件名作为参数，可以跟多个文件名</li>
+<li><code>cat -n [文件名]</code>可显示行号</li>
+<li><code>more</code>用于显示内容较多的文件，可将文件内容一页一页显示，<code>空格</code>向下翻动一页，<code>Enter</code>向下滚动一行，<code>Q</code>退出</li>
+</ul>
+</li>
+<li><p>阅读文件的开头和结尾</p>
+<ul>
+<li><code>head  -n 2  day</code>显示day文件的的前两行</li>
+<li><code>tail</code>的作用跟head相同</li>
+</ul>
+</li>
+<li><p>更好的文本阅读工具</p>
+<ul>
+<li><p><code>less</code>比<code>more</code>更强大一些，在显示文本后，会在底部有一个“：“等待用户输入命令，<code>空格</code>向下翻页，<code>b</code>向上翻页</p>
+<p>搜索使用<code>/</code>加要搜索的内容，要继续查找相同的内容，只需要再次键入<code>/</code>即可</p>
+<p>参数<code>-M</code>可以显示更多文件信息</p>
+</li>
+</ul>
+</li>
+<li><p>查找文件内容</p>
+<ul>
+<li><p><code>grep un day</code>在day文件中查找含有un的行，可以指定多个文件来搜索</p>
+</li>
+<li><p>如果要查找<code>Red Hat</code>这样带有空格的关键字，必须使用单引号来把空格包含进去</p>
+<p><code>$grep &#39;struct list&#39; stack.h</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="find-命令"><a href="#find-命令" class="headerlink" title="find 命令"></a>find 命令</h4><p>用于在指定范围内查找到文件</p>
+<ul>
+<li><p><code>find  /usr/bin/ -name  zip -print</code></p>
+<p>find后面接路径，<code>-name</code>指定查找的文件名，这里是zip，可以使用通配符；<code>-print</code>表示将结果输出到标准输出</p>
+</li>
+<li><p><code>-type</code>参数定位特殊文件类型，type可使用的类型如下</p>
+<p>| 参数 |     含义     | 参数 |   含义   |<br>| :–: | :———-: | :–: | :——: |<br>|  b   |  块设备文件  |  f   | 普通文件 |<br>|  c   | 字符设备文件 |  p   | 命令管道 |<br>|  d   |   目录文件   |  l   | 符号链接 |</p>
+</li>
+<li><p><code>-atime n</code>用来查找最后一次使用在n天前的文件</p>
+</li>
+<li><p><code>-mtime n</code>用来查找最后一次修改在n天前的文件</p>
+</li>
+<li><p><code>+n</code>表示大于n，<code>-n</code>表示小于n</p>
+<p>在/uer/bin/中查找最近100天内没有使用过的命令（也就是最后一次使用在100天或100天以前的命令</p>
+<p><code>$ find /usr/bin/ -type f  -atime +100 -print</code></p>
+</li>
+</ul>
+<h4 id="更快地定位文件"><a href="#更快地定位文件" class="headerlink" title="更快地定位文件"></a>更快地定位文件</h4><p>大批量搜索可以使用<code>locate</code>语法</p>
+<p><code>$ lacate *.doc</code></p>
+<p><code>locate</code>指令自动建立整个文件名数据库，如果要立刻生成该数据库文件的最新版本，那么可以使用<code>updatedb</code>命令，运行需要root权限</p>
+<h4 id="从终端运行程序"><a href="#从终端运行程序" class="headerlink" title="从终端运行程序"></a>从终端运行程序</h4><p>直接键入程序名称即可</p>
+<p>加入<code>&amp;</code>后，指导程序在后台运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ firefox &amp;</span><br><span class="line">[1] 8449</span><br></pre></td></tr></table></figure>
+<p>此时firefox将运行在后台，8449表示这个程序的进程号</p>
+<h4 id="查找特定程序"><a href="#查找特定程序" class="headerlink" title="查找特定程序"></a>查找特定程序</h4><p><code>whereis</code>命令主要用于查找程序文件，并提供这个文件的二进制可执行文件、源代码文件和使用手册页存放的位置；<code>-b</code>参数可以让whereis命令只查找这个程序的二进制可执行文件。</p>
+<h4 id="用户及版本信息查看"><a href="#用户及版本信息查看" class="headerlink" title="用户及版本信息查看"></a>用户及版本信息查看</h4><ul>
+<li><code>who</code>命令用于查看当前系统有哪些人登录，以及工作在哪个控制台上</li>
+<li><code>whoami</code></li>
+<li><code>uname -a</code>用于显示当前系统的版本信息，带-a会显示当前操作系统的所有的有用信息</li>
+<li><code>uname -r</code>只显示内核版本信息</li>
+</ul>
+<h4 id="寻求帮助"><a href="#寻求帮助" class="headerlink" title="寻求帮助"></a>寻求帮助</h4><p><code>man</code>+指令用于寻求帮助</p>
+<h4 id="获取命令简介"><a href="#获取命令简介" class="headerlink" title="获取命令简介"></a>获取命令简介</h4><ul>
+<li><code>whatis</code>后面加指令，可以从程序的使用手册中抽出一行简单的介绍性文字，帮助用户了解这个程序的大致用途。</li>
+<li>与之相反的一个命令是<code>apropos</code>反查命令</li>
+</ul>
+<hr>
+<p>未完待续</p>
+
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
