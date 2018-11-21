@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Hexo博客使用指南II：向博客中插入图片 | 帽子不太白</title>
+  <title>Git学习笔记(三) | 帽子不太白</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -173,57 +173,80 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2018-11-20T14:27:51.000Z" itemprop="datePublished">
-          2018-11-20
+      <time datetime="2018-11-21T00:38:43.000Z" itemprop="datePublished">
+          2018-11-21
       </time>
     
     
     | 
-    <a href='/tags/hexo指南/'>hexo指南</a>
+    <a href='/tags/git学习/'>git学习</a>
     
     
 </span>
-                <h1>Hexo博客使用指南II：向博客中插入图片</h1>
+                <h1>Git学习笔记(三)</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>如何向文章中插入图片</p>
+      		<p>关于Git的分支管理</p>
 <a id="more"></a>
-<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><ul>
-<li>首先我们需要用到的插件<code>CodeFalling/hexo-asset-image</code></li>
-<li>确认在<code>_config.yml</code>中<code>post_assert_folder</code>选项为：<code>true</code></li>
-<li>在<code>hexo</code>目录下执行下面的命令，安装插件<ul>
-<li><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></li>
-</ul>
-</li>
-<li>这样在执行<code>hexo new</code>命令时，会在<code>_post</code>目录下生成一个与文件名相同的文件夹，可以将插入的图片文件放入此文件夹下</li>
-<li><img src="/2018/11/20/Hexo博客使用指南II：向博客中插入图片/TIM截图20181120222950.png" alt="TIM截图20181120222950"></li>
-<li><p>在我使用的makedown语法编辑器<code>Typora</code>中，可以先将图片放入同名文件夹后，在拖入编辑器中，可自动生成图片</p>
-</li>
-<li><p>Tips</p>
-<ul>
-<li><p>在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：</p>
-</li>
-<li><p><code>![你想输入的替代文字](xxxx/图片名.jpg)</code></p>
-<p><strong>注意： xxxx是这个md文件的名字，也是同名文件夹的名字。只需要有文件夹名字即可，不需要有什么绝对路径。你想引入的图片就只需要放入xxxx这个文件夹内就好了。</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2018/11/20/Hexo博客使用指南II：向博客中插入图片/qq.JPG" alt="qq"></p>
+<h2 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h2><p>​    几乎每一种版本控制系统都以某种形式支持分支。使用分支意味着你可以从开发主线上分离开来，然后在不影响主线的同时继续工作。Git 的分支可谓是难以置信的轻量级，它的新建操作几乎可以在瞬间完成，并且在不同分支间切换起来也差不多一样快。和许多其他版本控制系统不同，Git 鼓励在工作流程中频繁使用分支与合并，哪怕一天之内进行许多次都没有关系。</p>
+<h3 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h3><p>​    在前面的内容中我们提到，Git保存的不是文件的变化或者差异，而是一系列不同时刻的文件快照。</p>
+<p>​    在进行提交操作时，git会保存一个提交对象(commit object)，该提交对象会包含一个指向暂存内容的快照指针，同时，还包含了作者的姓名和邮箱、提交时输入的信息以及指向他的父对象的指针。</p>
+<p>​    每次提交，Git都会把他们串成一条时间线，这条时间线就是一个分支。从我们之前的学习到现在，我们只使用了一条主分支，即<code>master</code>分支，<code>HEAD</code>严格来说不是指向提交，而是指向<code>master</code>，<code>master</code>才是指向提交的，所以<code>HEAD</code>指向的就是当前分支</p>
+<p>​    开始的时候，<code>master</code>分支是一条线，Git用<code>master</code>指向最新的提交，每次提交<code>master</code>分支都会向前移动，随着不断地提交，<code>master</code>分支的线也越来越长，再用<code>HEAD</code>指向<code>master</code>，就是确定当前分支，以及当前分支的提交点</p>
+<p><img src="/2018/11/21/Git学习笔记-三/0.png" alt="0"></p>
+<p>​    当我们创建新的分支，例如<code>dev</code>，Git新建了一个指针叫<code>dev</code>，指向<code>master</code>相同的提交，再把<code>HEAD</code>指向<code>dev</code>，就表示当前分支在<code>dev</code>上</p>
+<p><img src="/2018/11/21/Git学习笔记-三/1.png" alt="1"></p>
+<p>​    从现在开始，对工作区的修改和提交就是针对<code>dev</code>分支了，必须新提交一次后，<code>dev</code>指针往前移动一步，而<code>master</code>指针不变：</p>
+<p><img src="/2018/11/21/Git学习笔记-三/2.png" alt="2"></p>
+<p>​    假如我们在<code>dev</code>上的工作完成了，就可以把<code>dev</code>合并到<code>master</code>上。最简单的方法，就是直接把<code>master</code>指向<code>dev</code>的当前提交，就完成了合并：</p>
+<p><img src="/2018/11/21/Git学习笔记-三/3.png" alt="3"></p>
+<p>​    所以Git合并分支也很快， 通过改动指针，工作区内容也不变。</p>
+<p>​    合并完分支后，甚至可以删除<code>dev</code>分支。删除<code>dev</code>分支就是把<code>dev</code>指针给删掉，删掉后，我们就剩下了一条<code>master</code>分支：</p>
+<p><img src="/2018/11/21/Git学习笔记-三/4.png" alt="4"></p>
+<h2 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h2><ol>
+<li>创建<code>dev</code>分支，然后切换到<code>dev</code>分支：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b dev</span><br><span class="line">Switch to a new branch &apos;dev&apos;</span><br></pre></td></tr></table></figure>
+<p><code>git checkout</code>命令加上<code>-b</code>参数表示创建并切换，相当于以下两条命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br><span class="line">Switched to branch &apos;dev&apos;</span><br></pre></td></tr></table></figure>
+<p>用<code>git branch</code>命令查看当前分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
+<p>然后，我们就可以在<code>dev</code>分支上正常提交，比如对readme.txt做个修改，加上一行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Creating a new branch is quick.</span><br></pre></td></tr></table></figure>
+<p>然后提交：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git add readme.txt </span><br><span class="line">$ git commit -m &quot;branch test&quot;</span><br><span class="line">[dev b17d20e] branch test</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
+<p>现在，<code>dev</code>分支的工作完成，我们就可以切换回<code>master</code>分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &apos;master&apos;</span><br></pre></td></tr></table></figure>
+<p>切换回<code>master</code>分支后，再查看一个readme.txt文件，刚才添加的内容不见了！因为那个提交是在<code>dev</code>分支上，而<code>master</code>分支此刻的提交点并没有变：</p>
+<p><img src="/2018/11/21/Git学习笔记-三/.png" alt="png"></p>
+<p>现在，我们把<code>dev</code>分支的工作成果合并到<code>master</code>分支上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev</span><br><span class="line">Updating d46f35e..b17d20e</span><br><span class="line">Fast-forward</span><br><span class="line"> readme.txt | 1 +</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
+<p><code>git merge</code>命令用于合并指定分支到当前分支。合并后，再查看readme.txt的内容，就可以看到，和<code>dev</code>分支的最新提交是完全一样的。</p>
+<p>注意到上面的<code>Fast-forward</code>信息，Git告诉我们，这次合并是“快进模式”，也就是直接把<code>master</code>指向<code>dev</code>的当前提交，所以合并速度非常快。</p>
+<p>当然，也不是每次合并都能<code>Fast-forward</code>，我们后面会讲其他方式的合并。</p>
+<p>合并完成后，就可以放心地删除<code>dev</code>分支了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d dev</span><br><span class="line">Deleted branch dev (was b17d20e).</span><br></pre></td></tr></table></figure>
+<p>删除后，查看<code>branch</code>，就只剩下<code>master</code>分支了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+<p>因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在<code>master</code>分支上工作效果是一样的，但过程更安全。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>查看分支：<code>git branch</code></p>
+<p>创建分支：<code>git branch &lt;name&gt;</code></p>
+<p>切换分支：<code>git checkout &lt;name&gt;</code></p>
+<p>创建+切换分支：<code>git checkout -b &lt;name&gt;</code></p>
+<p>合并某分支到当前分支：<code>git merge &lt;name&gt;</code></p>
+<p>删除分支：<code>git branch -d &lt;name&gt;</code></p>
+<hr>
+<p>以上内容来自廖雪峰老师的git课程，感谢廖雪峰老师</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/11/21/Git学习笔记-三/" style="float: left;">
-        ← Git学习笔记(三)
-    </a>
     
-    
-    <a class="pull-right" href="/2018/11/15/Git关联远程仓库/">
-        Git学习笔记（二） →
+    <a class="pull-right" href="/2018/11/20/Hexo博客使用指南II：向博客中插入图片/">
+        Hexo博客使用指南II：向博客中插入图片 →
     </a>
     
 </nav>
