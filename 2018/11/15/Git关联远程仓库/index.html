@@ -223,6 +223,53 @@
 <p>删除分支HEAD</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin --delete HEAD</span><br></pre></td></tr></table></figure>
 <p>记得要进行<code>git commit -m</code>操作进行提交，然后<code>push</code>到远程仓库</p>
+<h2 id="修改文件并同步到远程仓库"><a href="#修改文件并同步到远程仓库" class="headerlink" title="修改文件并同步到远程仓库"></a>修改文件并同步到远程仓库</h2><h3 id="获取远程仓库文件"><a href="#获取远程仓库文件" class="headerlink" title="获取远程仓库文件"></a>获取远程仓库文件</h3><p>首先使用<code>git pull</code>命令将远程仓库的最新版本获取到本地，并自动合并，相对于<code>git fetch</code>来说，<code>fetch</code>可以获取最新版本到本地，但不会实现自动合并</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch origin master</span><br><span class="line">$ git log -p master..origin/master</span><br><span class="line">$ git merge origin/master</span><br></pre></td></tr></table></figure>
+<p><code>git pull</code>命令用于从另一个存储库或本地分支获取并集成(整合)。<code>git pull</code>命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并，它的完整格式稍稍有点复杂。</p>
+<p>以下是一些示例 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
+<p>比如，要取回<code>origin</code>主机的<code>next</code>分支，与本地的<code>master</code>分支合并，需要写成下面这样 -</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git pull origin next:master</span><br></pre></td></tr></table></figure>
+<p>如果远程分支(<code>next</code>)要与当前分支合并，则冒号后面的部分可以省略。上面命令可以简写为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git pull origin next</span><br></pre></td></tr></table></figure>
+<p>上面命令表示，取回<code>origin/next</code>分支，再与当前分支合并。实质上，这等同于先做<code>git fetch</code>，再执行<code>git merge</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git fetch origin</span><br><span class="line"><span class="meta">$</span> git merge origin/next</span><br></pre></td></tr></table></figure>
+<p>在某些场合，Git会自动在本地分支与远程分支之间，建立一种追踪关系(tracking)。比如，在<code>git clone</code>的时候，所有本地分支默认与远程主机的同名分支，建立追踪关系，也就是说，本地的<code>master</code>分支自动”追踪”<code>origin/master</code>分支。</p>
+<p>Git也允许手动建立追踪关系。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch --set-upstream master origin/next</span><br></pre></td></tr></table></figure>
+<p>上面命令指定<code>master</code>分支追踪<code>origin/next</code>分支。</p>
+<p>如果当前分支与远程分支存在追踪关系，<code>git pull</code>就可以省略远程分支名。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git pull origin</span><br></pre></td></tr></table></figure>
+<p>上面命令表示，本地的当前分支自动与对应的<code>origin</code>主机”追踪分支”(remote-tracking branch)进行合并。</p>
+<p>如果当前分支只有一个追踪分支，连远程主机名都可以省略。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git pull</span><br></pre></td></tr></table></figure>
+<p>上面命令表示，当前分支自动与唯一一个追踪分支进行合并。</p>
+<p>如果合并需要采用<code>rebase</code>模式，可以使用<code>–rebase</code>选项。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git pull --rebase &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>git fetch和git pull的区别</strong></p>
+<ol>
+<li><em>git fetch</em>：相当于是从远程获取最新版本到本地，不会自动合并。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git fetch origin master</span><br><span class="line"><span class="meta">$</span> git log -p master..origin/master</span><br><span class="line"><span class="meta">$</span> git merge origin/master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Shell</span><br></pre></td></tr></table></figure>
+<p>以上命令的含义：</p>
+<ul>
+<li>首先从远程的<code>origin</code>的<code>master</code>主分支下载最新的版本到<code>origin/master</code>分支上</li>
+<li>然后比较本地的<code>master</code>分支和<code>origin/master</code>分支的差别</li>
+<li>最后进行合并</li>
+</ul>
+<p>上述过程其实可以用以下更清晰的方式来进行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git fetch origin master:tmp</span><br><span class="line"><span class="meta">$</span> git diff tmp </span><br><span class="line"><span class="meta">$</span> git merge tmp</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><em>git pull</em>：相当于是从远程获取最新版本并<code>merge</code>到本地</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p>上述命令其实相当于<code>git fetch</code> 和 <code>git merge</code><br>在实际使用中，<code>git fetch</code>更安全一些，因为在<code>merge</code>前，我们可以查看更新情况，然后再决定是否合并。</p>
+<h3 id="添加文件到本地"><a href="#添加文件到本地" class="headerlink" title="添加文件到本地"></a>添加文件到本地</h3><p>​    将文件添加到本地仓库的指定目录下</p>
+<h3 id="添加并push到远程仓库"><a href="#添加并push到远程仓库" class="headerlink" title="添加并push到远程仓库"></a>添加并push到远程仓库</h3><p>​    使用<code>git add</code>和<code>git commit -m</code>命令将添加到本地仓库的文件进行添加，并使用</p>
+<blockquote>
+<p>git push origin </p>
+</blockquote>
+<p>推送到远程仓库</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
