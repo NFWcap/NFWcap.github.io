@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>Packetforge-ng使用指南 | 帽子不太白</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="帽子不太白">
+    <meta name="author" content="Alex">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="帽子不太白" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://pwnable.kr/play.php" class="animsition-link">Pwnable.kr</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">帽子不太白</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-12-08T04:54:53.000Z" itemprop="datePublished">
+          2018-12-08
+      </time>
+    
+    
+    | 
+    <a href='/tags/无线网络安全/'>无线网络安全</a>
+    
+    
+</span>
+                <h1>Packetforge-ng使用指南</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>Packetforge-ng是配合aircrack-ng使用的生成包的工具，本文主要介绍了一些使用参数和示例</p>
+<a id="more"></a>
+<h1 id="Packetforge-ng"><a href="#Packetforge-ng" class="headerlink" title="Packetforge-ng"></a>Packetforge-ng</h1><p>​    packetforge-ng是用于创建用来注入的加密数据包的工具。可以使用packetforge-ng创建各种类型的数据包，例如ARP请求包、UDP、ICMP和自定义数据包，最常见的用途是为后续注入创建ARP请求。</p>
+<p>​    要创建加密数据包，必须具有PRGA（伪随机生成算法）文件。这用于加密创建的数据包。通常通过<a href="https://www.aircrack-ng.org/doku.php?id=aireplay-ng" target="_blank" rel="noopener">aireplay-ng </a><a href="https://www.aircrack-ng.org/doku.php?id=korek_chopchop" target="_blank" rel="noopener">chopchop</a>或<a href="https://www.aircrack-ng.org/doku.php?id=fragmentation" target="_blank" rel="noopener">碎片</a>攻击获得。</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>Usage: packetforge-ng <mode> <options></options></mode></p>
+<h3 id="Forge-options"><a href="#Forge-options" class="headerlink" title="Forge options"></a>Forge options</h3><ul>
+<li>-p <fctrl> :设置帧控制字节（十六进制）</fctrl></li>
+<li>-a <bssid> : 设置AP的MAC地址</bssid></li>
+<li>-c <dmac> : 设置目的MAC地址</dmac></li>
+<li>-h <smac> : 设置源MAC地址</smac></li>
+<li>-j : 设置FromDS位</li>
+<li>-o : 清除ToDS位</li>
+<li>-e : 禁用WEP加密</li>
+<li>-k &lt; ip[ : port]&gt; : 设置目标IP[端口]</li>
+<li>-l &lt; ip[:port]&gt; : 设置源IP[端口]（短划线，小写字母L）</li>
+<li>-t ttl : 设置生存之间</li>
+<li>-w <file> : 将数据包写入此pcap文件</file></li>
+</ul>
+<h3 id="Source-options"><a href="#Source-options" class="headerlink" title="Source options"></a>Source options</h3><ul>
+<li>-r <file> : 从原始文件中读取数据包</file></li>
+<li>-y <file> : 从此文件中读取PRGA</file></li>
+</ul>
+<h3 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h3><ul>
+<li>- -arp：伪造ARP数据包（-0）</li>
+<li>- -udp：伪造UDP数据包（-1）</li>
+<li>- -icmp：伪造ICMP数据包（-2）</li>
+<li>- -null：构建一个空包（-3）</li>
+<li>- -custom：构建自定义数据包（-9）</li>
+</ul>
+<h2 id="用法示例"><a href="#用法示例" class="headerlink" title="用法示例"></a>用法示例</h2><h3 id="生成arp请求包"><a href="#生成arp请求包" class="headerlink" title="生成arp请求包"></a>生成arp请求包</h3><p>首先，使用<code>aireplay-ng chopchop</code>或<code>fragmentation</code>方法获取<code>xor</code>文件（PRGA）</p>
+<p>然后使用以下命令：</p>
+<blockquote>
+<p>packetforge-ng -0 -a 00：14：6C：7E：40：80 -h 00：0F：B5：AB：CB：9D -k 192.168.1.100 -l 192.168.1.1 -y fragment-0124-161129.xor -w arp-request</p>
+</blockquote>
+<p>其中：</p>
+<ul>
+<li>-0表示希望生成arp请求数据包</li>
+<li>-a 00：14：6C：7E：40：80是接入点MAC地址</li>
+<li>-h 00：0F：B5：AB：CB：9D是要使用的源MAC地址</li>
+<li>-k 192.168.1.100是目标IP。 IE在一个arp中，它是“谁有这个IP”</li>
+<li>-l 192.168.1.1是源IP。 IE在arp中它是“告诉这个IP”</li>
+<li>-y fragment-0124-161129.xor</li>
+<li>-w arp-packet</li>
+</ul>
+<p>如果我们正在欺骗我们自己的AP，那么刚刚伪造的包可以使用我们自己的秘钥进行加密。所以要看到刚刚创建的数据包，可以进行解密：</p>
+<blockquote>
+<p> 输入“airdecap-ng -w &lt;接入点加密密钥&gt; arp-request”</p>
+</blockquote>
+<p>结果如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Total number of packets read             1</span><br><span class="line">Total number of WEP data packets         1</span><br><span class="line">Total number of WPA data packets         0</span><br><span class="line">Number of plaintext data packets         0</span><br><span class="line">Number of decrypted WEP  packets         1</span><br><span class="line">Number of decrypted WPA  packets         0</span><br></pre></td></tr></table></figure>
+<p>要查看刚刚解密的数据包，请输入“tcpdump -n -vvv -e -s0 -r arp-request-dec”</p>
+<p>结果如下所示：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;reading from file arp-request-dec, link-type EN10MB (Ethernet)</span><br><span class="line">&gt;18:09:27.743303 00:0f:b5:ab:cb:9d &gt; Broadcast, ethertype ARP (0x0806), length 42: arp who-has 192.168.1.100 tell 192.168.1.1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>正如我们预料之中。</p>
+<p>我们可以用下面的命令将我们构建的ARP-request包注入</p>
+<blockquote>
+<p>aireplay-ng -2 -r arp-request ath0</p>
+</blockquote>
+<p>收到回复：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">   Size: 68, FromDS: 0, ToDS: 1 (WEP)</span><br><span class="line"></span><br><span class="line">           BSSID  =  00:14:6C:7E:40:80</span><br><span class="line">       Dest. MAC  =  FF:FF:FF:FF:FF:FF</span><br><span class="line">      Source MAC  =  00:0F:B5:AB:CB:9D</span><br><span class="line"></span><br><span class="line">0x0000:  0841 0201 0014 6c7e 4080 000f b5ab cb9d  .A....l~@.......</span><br><span class="line">0x0010:  ffff ffff ffff 8001 6c48 0000 0999 881a  ........lH......</span><br><span class="line">0x0020:  49fc 21ff 781a dc42 2f96 8fcc 9430 144d  I.!.x..B/....0.M</span><br><span class="line">0x0030:  3ab2 cff5 d4d1 6743 8056 24ec 9192 c1e1  :.....gC.V$.....</span><br><span class="line">0x0040:  d64f b709                                .O..</span><br><span class="line"></span><br><span class="line">Use this packet ? y</span><br><span class="line"></span><br><span class="line">Saving chosen packet in replay_src-0124-163529.cap</span><br><span class="line">You should also start airodump-ng to capture replies.</span><br><span class="line">End of file.</span><br></pre></td></tr></table></figure>
+<p>通过在上面输入“y”，然后注入我们刚刚使用packetforge-ng创建的数据包。</p>
+<h3 id="生成空数据包"><a href="#生成空数据包" class="headerlink" title="生成空数据包"></a>生成空数据包</h3><p>这个选项允许我们产生LLC 空数据包。这些可能是最小的包而且不包含任何数据。选项“-s” 用来手动设置数据包的大小。这是一种生成用来注入的小包的简单方法。</p>
+<p>大小值<code>-s</code>定义了未加密数据包的绝对大小，所以在加密后需要添加8个字节来获得最终长度（iv + idx为4个字节，icv为4个字节）。该值还包括长度为24字节的802.11标头。</p>
+<p>命令:</p>
+<blockquote>
+<p>packetforge-ng –null -s 42 -a BSSID -h SMAC -w short-packet.cap -y fragment.xor</p>
+</blockquote>
+<p>其中：</p>
+<ul>
+<li>-null表示生成LLC空数据包（需要双短划线）。</li>
+<li>-s 42指定要生成的分组长度。</li>
+<li>-a BSSID是接入点的MAC地址。</li>
+<li>-h SMAC是要生成的数据包的源MAC地址。</li>
+<li>-w short-packet.cap是输出文件的名称。</li>
+<li>-y fragment.xor是包含PRGA的文件的名称。</li>
+</ul>
+<h3 id="生成自定义数据包"><a href="#生成自定义数据包" class="headerlink" title="生成自定义数据包"></a>生成自定义数据包</h3><p>如果要生成客户端数据包，首选选择创建数据包的工具。这里可以是一个特殊的工具，一个十六进制编辑器或者是从过去抓取的包。然后将其保存为<code>pcap</code>文件，在此之后，运行命令：</p>
+<blockquote>
+<p>packetforge-ng -9 -r input.cap -y keystream.xor -w output.cap</p>
+</blockquote>
+<p>这其中：</p>
+<ul>
+<li>-9表示生成自定义数据包。</li>
+<li>-r input.cap是输入文件。</li>
+<li>-y keystream.xor是包含PRGA的文件。</li>
+<li>-w output.cap是输出文件。</li>
+</ul>
+<p>当它运行时，packetforge-ng将询问使用哪个数据包然后输出该文件</p>
+<h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><p>大多数接入点实际上并不关心用于arp请求的IP。因此，您可以将255.255.255.255用于源和目标IP。</p>
+<p>所以packetforge-ng命令变为：</p>
+<blockquote>
+<p>packetforge-ng -0 -a 00：14：6C：7E：40：80 -h 00：0F：B5：AB：CB：9D -k 255.255.255.255 -l 255.255.255.255 -y fragment-0124-161129.xor -w arp-request</p>
+</blockquote>
+<h2 id="用法故障排除"><a href="#用法故障排除" class="headerlink" title="用法故障排除"></a>用法故障排除</h2><h3 id="包括-j-和-o-标志位"><a href="#包括-j-和-o-标志位" class="headerlink" title="包括-j 和 -o 标志位"></a>包括-j 和 -o 标志位</h3><p>人们常犯的一个错误是包含 -j和 -o标志中的任何一个或两个，并创建了无效的数据包。这些标志调整生成的数据包中的FromDS和ToDS标志。除非你正在做一些特别的事情，并且真的知道你在做什么，否则不要使用它们。一般来说，它们不是必需的。</p>
+<h3 id="Error-message-“Mode-already-specified”"><a href="#Error-message-“Mode-already-specified”" class="headerlink" title="Error message “Mode already specified”"></a>Error message “Mode already specified”</h3><p>这个错误通常是由于使用了数字1（-1），而不是使用<code>L</code>的小写形式（-l）</p>
+<p>输入：</p>
+<blockquote>
+<p>packetforge-ng -0 -a 00：14：6C：7E：40：80 -h 00：09：5B：EC：EE：F2 -k 255.255.255.255 -1 255.255.255.255 -y 00：14：6C：7E ：40：80-03-00-14-6C-7E-40-80.xor -w arp-request </p>
+</blockquote>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Mode already specified.</span><br><span class="line"> &quot;packetforge-ng --help&quot; for help.</span><br></pre></td></tr></table></figure>
+<p>这是因为使用了-1（数字1）而不是正确的-l（小写字母L）。所以只需使用“-l”即可。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/12/05/一个汇率换算工具/">
+        一个汇率换算工具 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Alex. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
