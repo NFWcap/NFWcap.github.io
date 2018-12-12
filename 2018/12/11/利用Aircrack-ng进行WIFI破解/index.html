@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>利用Aircrack-ng进行WIFI破解 | 帽子不太白</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="帽子不太白">
+    <meta name="author" content="Alex">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="帽子不太白" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://pwnable.kr/play.php" class="animsition-link">Pwnable.kr</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">帽子不太白</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-12-11T14:00:59.000Z" itemprop="datePublished">
+          2018-12-11
+      </time>
+    
+    
+    | 
+    <a href='/tags/无线网络安全/'>无线网络安全</a>
+    
+    
+</span>
+                <h1>利用Aircrack-ng进行WIFI破解</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>研究使用Aircrack-ng套件进行wifi破解</p>
+<a id="more"></a>
+<p>本文的工具使用，破解过程参考自：</p>
+<p><a href="https://www.cnblogs.com/york-hust/archive/2012/07/07/2580340.html" target="_blank" rel="noopener">Aircrack-ng完全教程</a>，原文应该是出自《无线黑客傻瓜书》，由于现在无线WIFI大多使用WPA2加密方式进行加密，此次我们实验对象也是WPA2加密的热点。</p>
+<h1 id="WIFI破解实验"><a href="#WIFI破解实验" class="headerlink" title="WIFI破解实验"></a>WIFI破解实验</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul>
+<li><p>Aircrack-ng是一个Kali自带的，包含了多款工具的套装，我们需要使用里面的：<br>airmon-ng<br>airodump-ng<br>aireplay-ng<br>aircrack-ng</p>
+</li>
+<li><p>Kali虚拟机，USB无线网卡</p>
+</li>
+<li>实验AP</li>
+<li>连入实验AP的客户端设备</li>
+</ul>
+<p>这次实验我们使用Kali虚拟机进行实验，通过外置USB无线网卡进行操作，Kali Linux自带的Aircrack-ng是我们的主要”武器“</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>首先使用命令查看自己的网卡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p>可以看到里面有个<code>wlan0</code>，注意这里我使用的是Kali虚拟机，所以网卡要使用外置的USB无线网卡</p>
+<p><img src="/2018/12/11/利用Aircrack-ng进行WIFI破解/1.png" alt="1"></p>
+<ul>
+<li>如果没有看到<code>wlan0</code>网卡，确保已经正确插入USB或者PCMCIA型无线网卡，此时，为了查看无线网卡是否已经正确连接至系统，应输入</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig -a</span><br></pre></td></tr></table></figure>
+<p>参数解释：</p>
+<p>-a 显示主机所有网络接口的情况。和单纯的ifconfig命令不同，加上-a参数后可以看到所有连接至当前系统网络接口的适配器。</p>
+<p>既然已经识别出来了，那么接下来就可以激活无线网卡了。说明一下，无论是有线还是无线网络适配器，都需要激活，否则无法使用。这步就相当于Windows下将“本地连接”启用一样，不启用的连接是无法使用的。输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig wlan0 up</span><br></pre></td></tr></table></figure>
+<p>参数解释：</p>
+<p>up 用于加载网卡的，这里我们来将已经插入到笔记本的无线网卡载入驱动。在载入完毕后，我们可以再次使用ifconfig进行确认。</p>
+<p>一定要保证它现在没有连接到任何wifi。上面图中那个wlan0里面没有ip地址什么的就说明现在不在连接中。</p>
+<p>激活无线网卡至<code>monitor</code>，监听模式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airmon-ng start wlan0</span><br></pre></td></tr></table></figure>
+<p>参数解释：</p>
+<p>start 后跟无线网卡设备名称，此处参考前面ifconfig显示的无线网卡名称；</p>
+<p><img src="/2018/12/11/利用Aircrack-ng进行WIFI破解/2.png" alt="2"></p>
+<p>可以看到在监听模式下，无线网卡的名称已经变为了<code>wlan0mon</code></p>
+<p>在Chipset芯片类型上标明是ath9k_htc芯片，默认驱动为Atheros</p>
+<h2 id="探测"><a href="#探测" class="headerlink" title="探测"></a>探测</h2><p>激活无线网卡后，开启无线数据包抓包工具，在这之前，一般需要先进行预测，探测周围WIFI的环境，包括AP的SSID、MAC地址、工作频道、无线客户端MAC及数量等。只需打开一个Shell，输入具体命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airodump-ng wlan0mon</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/11/利用Aircrack-ng进行WIFI破解/3.png" alt="3"></p>
+<p>得到如果图所示的信息，其中有部分内容因为上面的内容过多而遮挡住，这时候我们锁定我们要攻击的目标<code>CMCC</code>，并记录其BSSID，即<code>E6:9A:DC:79:7:EC</code>，并重新锁定查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airodump-ng --bssid  E6:9A:DC:79:7:EC  wlan0mon</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/11/利用Aircrack-ng进行WIFI破解/4.png" alt="4"></p>
+<p>这时候可以看到完整的信息，其中</p>
+<p>周围wifi的名字，最左侧的BSSID，是这些wifi对应的mac地址。ENC是加密方式。可以看到基本都是WPA2的，很少有WPA和WEP。因为这两个的安全性都较WPA2次之。CH是工作频道。</p>
+<p>我们的目标AP是<code>CMCC</code>,MAC地址是<code>E6:9A:DC:79:7:EC</code>,表中下半部分罗列出的是链接到这个AP的设备的MAC地址，这里我们选择连入AP的第一个设备，MAC地址为<code>5C:F5:DA:24:49:68</code>，这是我们连入的设备，工作频道是1</p>
+<h2 id="抓包阶段"><a href="#抓包阶段" class="headerlink" title="抓包阶段"></a>抓包阶段</h2><p>我们已经得到了要攻击的AP的mac地址和其中的客户端设备的mac地址以及工作频道，所以执行下面的指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airodump-ng --ivs --bssid E6:9A:DC:79:7:EC -w longas -c 1 wlan0mon</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<p>–ivs 这里的设置是通过过滤，不再将所有的无线数据保存，而只是保存可用于破解的IVS数据报文，这样可以有效地缩减保存的数据包大小</p>
+<p>-c 用于设置目标AP的工作频道，经过刚才的观察，我们要进行攻击实验的无线路由器工作频道为1</p>
+<p>-w 后面跟的是要保存的文件名，这里w就是“write”的意思，所以输入自己希望保存的文件名，虽然我们设置的文件名为longas，但生成的文件名确实longas-0x.ivs，这里的x根据你是第几次使用这个文件名字，有可能是1、2、3……以此类推</p>
+<p>–bssid 是路由器的mac地址</p>
+<blockquote>
+<p>注意：这是因为airodump-ng这款工具为了方便后面破解时候的调用，所以对保存文件按顺序编了号，于是就多了-01这样的序号，以此类推，在进行第二次攻击时，若使用同样文件名longas保存的话，就会生成名为longas-02.ivs的文件，一定要注意哦，别到时候找不到又要怪我没写清楚：）<br> 破解的时候可不可以将这些捕获的数据包一起使用呢，当然可以，届时只要在载入文件时使用longas*.cap即可，这里的星号指代所有前缀一致的文件</p>
+</blockquote>
+<p><img src="/2018/12/11/利用Aircrack-ng进行WIFI破解/air-ivs.png" alt="air-ivs"></p>
+<p>上图所示的页面表示抓包已经开始，接下来保持这个窗口不动，记住不要将他关闭，打开另一个shell进行后面的步骤。</p>
+<h2 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h2><p>这里为了获得破解所需的WPA2握手验证的整个完整数据包，我们将会发送一种称之为“Deauth”的数据包来将已经连接至无线路由器的合法无线客户端强制断开，此时，客户端就会自动重新连接无线路由器，我们也就有机会捕获到包含WPA2握手验证的完整数据包了。这里我们使用的是Aircrack-ng中名为Aireplay-ng的组件，这个组件用于发送和干扰流量，以后的文章中会具体介绍它的作用。</p>
+<p>这里我们发送的<code>Deauth</code>数据包可以将合法无线客户端强制断开，这个时候客户端就会自动重新连接无线路由器，我们也就有机会或得到完整的WPA2-PSK得握手验证数据包。</p>
+<p>此时重新打开一个shell：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aireplay-ng -0 10 –a E6:9A:DC:79:7:EC -c 5C:F5:DA:24:49:68 wlan0mon</span><br></pre></td></tr></table></figure>
+<p>-0 采用deauth攻击模式，后面跟上攻击次数，这里我设置为10，可以根据实际情况设置为1-10不等<br>-a 后跟路由器的mac地址<br>-c 后跟客户端的mac地址</p>
+<p><img src="/2018/12/11/利用Aircrack-ng进行WIFI破解/death.png" alt="death"></p>
+<p>这个时候，回到刚才的shell我们可以发现，右上角出现了<code>WPA handshake</code>的提示，这代表我们已经获得了包括WPA2-PSK密码的握手验证数据报文，如果没有出现，就增加Deauth的数量在进行一次攻击，可以将参数-0后面的次数更改为10</p>
+<p><img src="/2018/12/11/利用Aircrack-ng进行WIFI破解/death2.png" alt="death2"></p>
+<h2 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h2><p>在破解之前我们先查看一下我们抓到的包的名字</p>
+<p><code>ls</code></p>
+<p>可以看到目录下的<code>longas-02.ivs</code>这个就是我们用来破解的文件</p>
+<p>同时我们还需要准备一个字典，字典可以自己使用<code>crunch</code>生成，或者是从网上下载字典，为了快速方便，我把密码直接添加到了文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aircrack-ng -w password.txt longas-02.ivs</span><br></pre></td></tr></table></figure>
+<p>-w 后面跟预先制作的字典。</p>
+<p>回车之后，如果捕获数据中包含了多个无线网络的数据，也就是能看到多个SSID出现的情况，就意味着其他AP的无线数据皆因为工作在同一频道而被同时捕获到。由于数量很少，所以对于破解没有实际意义，这时候输入正确的选项，对应目标AP的值，回车就可以开始破解。</p>
+<p><img src="/2018/12/11/利用Aircrack-ng进行WIFI破解/key.png" alt="key"></p>
+<p>中间有一句：KEY FOUND!，后面的中括号里面，就是这个路由器的wifi密码。到此，wifi密码的破解也就完成了。</p>
+<h1 id="关于kali系统自带字典目录wordlists"><a href="#关于kali系统自带字典目录wordlists" class="headerlink" title="关于kali系统自带字典目录wordlists"></a>关于kali系统自带字典目录wordlists</h1><p>路径：/usr/share/wordlists/</p>
+<p><strong>dirb</strong><br>big.txt #大的字典<br>small.txt #小的字典<br>catala.txt #项目配置字典<br>common.txt #公共字典<br>euskera.txt #数据目录字典<br>extensions_common.txt #常用文件扩展名字典<br>indexes.txt #首页字典<br>mutations_common.txt #备份扩展名<br>spanish.txt #方法名或库目录<br>others #扩展目录，默认用户名等<br>stress #压力测试<br>vulns #漏洞测试</p>
+<p><strong>dirbuster</strong><br>apache-user-enum-** #apache用户枚举<br>directories.jbrofuzz #目录枚举<br>directory-list-1.0.txt #目录列表大，中，小 big，medium，small</p>
+<p><strong>fern-wifi</strong><br>common.txt #公共wifi账户密码</p>
+<p><strong>metasploit</strong><br>… #各种类型的字典</p>
+<p><strong>webslayer</strong><br>general #普通字典目录<br>admin-panels.txt #后台路径 字典<br>….</p>
+<p>Injections #注入字典目录<br>All_attack.txt #全部攻击<br>bad_chars.txt #字符注入<br>SQL.txt #sql注入<br>Traversal.txt #路径回溯<br>XML.txt #xml注入<br>XSS.txt #xxs注入</p>
+<p>others #扩展目录<br>common_pass.txt #通用密码字典<br>names.txt #用户名字典</p>
+<p>stress #压力测试目录</p>
+<p>vulns #漏洞测试目录<br>apache、iis、cgis…</p>
+<p>webservicces #web服务目录<br>ws-dirs.txt #路径测试<br>ws-files.txt #文件测试</p>
+<p><strong>wfuzz</strong> #模糊测试，各种字典…</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/12/08/Packetforge-ng使用指南/">
+        Packetforge-ng使用指南 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Alex. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
