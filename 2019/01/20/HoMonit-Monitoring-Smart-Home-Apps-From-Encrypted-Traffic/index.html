@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>HoMonit_ Monitoring Smart Home Apps From Encrypted Traffic | 帽子不太白</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="帽子不太白">
+    <meta name="author" content="Alex">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="帽子不太白" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://pwnable.kr/play.php" class="animsition-link">Pwnable.kr</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">帽子不太白</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2019-01-20T15:01:33.000Z" itemprop="datePublished">
+          2019-01-20
+      </time>
+    
+    
+    | 
+    <a href='/tags/Smart-Home/'>Smart Home</a>
+    
+    
+</span>
+                <h1>HoMonit_ Monitoring Smart Home Apps From Encrypted Traffic</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>本文以三星SmartThings平台为研究对象，提供了一个能够在加密的无线信道中监控物联网设备的系统。</p>
+<a id="more"></a>
+<h1 id="HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic"><a href="#HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic" class="headerlink" title="HoMonit_ Monitoring Smart Home Apps From Encrypted Traffic"></a>HoMonit_ Monitoring Smart Home Apps From Encrypted Traffic</h1><p>出处：CCS’18</p>
+<p>作者：Wei Zhang, Yan Meng, Yugeng Liu, Xiaokuan Zhang, Yinqian Zhang, Haojin Zhu</p>
+<p>单位：SJTU, OSU</p>
+<p>原文：<a href="https://dl.acm.org/citation.cfm?id=3243820" target="_blank" rel="noopener">https://dl.acm.org/citation.cfm?id=3243820</a></p>
+<p>转自：<a href="https://securitygossip.com/blog/2018/11/22/homonit-monitoring-smart-home-apps-from-encrypted-traffic-dot-pdf/" target="_blank" rel="noopener">https://securitygossip.com/blog/2018/11/22/homonit-monitoring-smart-home-apps-from-encrypted-traffic-dot-pdf/</a></p>
+<h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p>本文以三星SmartThings平台为研究对象，提供了一个能够在加密的无线信道中监控物联网设备的系统。</p>
+<p>在26th USENIX Security Symposium中有一篇类似的文章（与本文中提到的之前的工作较为吻合），同样以三星的物联网平台为研究对象，通过分析传感器数据和源码，对物联网设备实际的越权行为进行了分析并提供了监控系统。</p>
+<h2 id="INTRODUCTION"><a href="#INTRODUCTION" class="headerlink" title="INTRODUCTION"></a>INTRODUCTION</h2><p>Samsung SmartThings,Apple HomeKit,Google Brilo and Weave,Vera Control Vera以及AllSeen Alliance AllJoyn为代表的物联网平台为不同厂商的智能设备提供了统一的标准，并提供设备之间的通信服务（通过网关或云服务器），将不同设备生产商的产品结合起来。</p>
+<p>2015年，三星的SmartThings已经是最大的物联网平台，集成了521款应用。</p>
+<p>之前的工作中，对于物联网平台的安全和隐私保护主要有三种方式： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、修改物联网平台应用，添加信息流控制的代码</span><br><span class="line">2、基于上下文的权限管理系统，帮助用户分配权限</span><br><span class="line">3、对智能设备源码进行分析后进行基于上下文的权限管理</span><br></pre></td></tr></table></figure>
+<p>而本文旨在提供一种第三方的保护措施，通过加密信道来监控智能设备。</p>
+<p>HoMonit是一个能够从加密的无线通信信道中对智能设备进行监控的系统。其核心是DFA匹配算法。</p>
+<p>核心思想是，每个智能设备的行为都遵循一种确定的DFA模型，模型中的状态能够表示app运行的状态。</p>
+<p>首先，从智能设备的网站上获取源码和文档结合app UI建立一个DFA模型。</p>
+<p>然后，通过对无线网络痛惜的侧信道分析，对加密的无线通信信道进行监控，从而能够对DFA模型中的状态转换进行分析。</p>
+<p>而侧信道中，对加密数据的监控，基于对数据包大小和间隔的观察。</p>
+<p>一旦智能设备的运行出现了DFA模型中不包含的状态。即可以判断该设备出现了异常行为，检测出这是一个恶意的应用。</p>
+<p>在对该系统的评估中，本文对60款开源应用进行修改，使其模拟恶意行为。结果显示，该系统能够搞笑的检测出几种恶意行为。</p>
+<p>主要贡献：  1、新的技术：能够通过对源码、应用的UI分析构建出DFA模型；  侧信道分析无线通信信道的方法 2、新的系统：HoMonit（不需要与厂商合作）能够在第三方视角分析SmartThings平台的智能设备恶意行为。 3、开源数据集：在对系统评估时使用的60个修改过的恶意应用已经公开</p>
+<h2 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h2><p>三星SmartThings涉及到三种底层通信协议ZigBee、Z-Wave和Wi-Fi,通过一个中继器完成应用和设备之间的通信。</p>
+<p><img src="/2019/01/20/HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic/2.png" alt="2"></p>
+<p>在SmartThings平台上，设备使用ZigBee、Z-Wave占据了百分之80左右的份额。这两种协议都采用了128bits的AES加密。</p>
+<p>本文中，设计的恶意软件，主要存在两种恶意行为：获取额外的权限和欺骗行为（欺骗服务器）。</p>
+<h2 id="MOTIVATIONS-AND-INSIGHTS"><a href="#MOTIVATIONS-AND-INSIGHTS" class="headerlink" title="MOTIVATIONS AND INSIGHTS"></a>MOTIVATIONS AND INSIGHTS</h2><p>本文中设计的系统较之前的工作，更加通用，它设计时以整个平台的角度出发。而不需要对特定应用进行修改。</p>
+<p>HoMonit的设计，基于两个规律。一是，为了降低能耗智能设备的洗一大多设计为低传输速率，并且尽量减少数据冗余。二是，中继器和设备之间的通信，大多存在一些自定义的标记字段。</p>
+<p><img src="/2019/01/20/HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic/3.png" alt="3"></p>
+<p>本文的设计思想，如图所示。</p>
+<p>以动态传感器驱动开关为例。</p>
+<p>本例中，定义两种行为（motion.active,switch.on），三个状态。</p>
+<p>纵坐标表示数据包大小，横坐标表示时间。当检测到数据包变化如图中情形时，就判定发生了相应的动作。并产生状态转换。</p>
+<h2 id="DFA-BUILDING-VIA-SMARTAPP-ANALYSIS"><a href="#DFA-BUILDING-VIA-SMARTAPP-ANALYSIS" class="headerlink" title="DFA BUILDING VIA SMARTAPP ANALYSIS"></a>DFA BUILDING VIA SMARTAPP ANALYSIS</h2><p>选择DFA来描绘智能应用得原因有两点：  1、智能应用管理有限数量的设备 2、智能设备会在满足条件得情况下由智能应用驱动产生状态变化</p>
+<p>这与DFA的有限状态和转移条件的特性相吻合。</p>
+<h3 id="DFA-Builing-for-Open-source-Apps"><a href="#DFA-Builing-for-Open-source-Apps" class="headerlink" title="DFA Builing for Open-source Apps"></a>DFA Builing for Open-source Apps</h3><p>选择DFA来描绘智能应用得原因有两点：  1、智能应用管理有限数量的设备 2、智能设备会在满足条件得情况下由智能应用驱动产生状态变化</p>
+<p>这与DFA的有限状态和转移条件的特性相吻合。</p>
+<h3 id="DFA-Builing-for-Open-source-Apps-1"><a href="#DFA-Builing-for-Open-source-Apps-1" class="headerlink" title="DFA Builing for Open-source Apps"></a>DFA Builing for Open-source Apps</h3><p>对于开源应用，通过进行对源码的静态分析来建立DFA模型。</p>
+<p>首先将源代码转换为AST抽象语法树。</p>
+<p>再将AST转换为DFA。</p>
+<p>1、建立状态集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">即找出应用具备的功能。   </span><br><span class="line">首先，通过阅读开发者文档作为参考依据；</span><br><span class="line"></span><br><span class="line">其次，通过一些input（Groovy语法,类似获取数据并进行条件判断）函数方法来确定。</span><br><span class="line">尤其是一些条件转移的代码。</span><br></pre></td></tr></table></figure>
+<p>2、确定转移条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过subscribe和handler方法（Groovy语法，</span><br><span class="line">类似开启线程执行某个特定的与设备交互的功能）来确定转移条件。</span><br></pre></td></tr></table></figure>
+<p>使用该方法对181个应用进行了测试，其中150个成功建立了DFA模型（82.9%）</p>
+<h3 id="DFA-Builing-for-Closed-source-Apps"><a href="#DFA-Builing-for-Closed-source-Apps" class="headerlink" title="DFA Builing for Closed-source Apps"></a>DFA Builing for Closed-source Apps</h3><p><img src="/2019/01/20/HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic/4.png" alt="4"></p>
+<p>对于闭源应用，则通过在应用UI中的语义分析来构建DFA模型。</p>
+<p>在用户首次安装应用进行授权时，所分配的权限能够反映出一些有效信息。所以我们使用adb命令中的uiautomator来将UI hierarchy转换成xml获取应用的权限信息。</p>
+<p>并且可以从String.xml中得到一些有用的信息。例如一些应用中涉及场景的字符串。</p>
+<p>在应用添加设备时，我们认为可选的设备都具备该应用能够执行的某种功能。可以通过这种方式缩小范围。另外，应用的功能往往与某个名词有关联（例如water 与water sensor有联系）</p>
+<p>当通过各种方式确定了应用具有的功能之后，接下来需要确定每个功能对应的参数和指令。这些信息可以先从官方文档中得到，并通过语义分析将动词和指令或参数匹配。（例如when water is sensed能够与water的wet参数匹配）</p>
+<h2 id="DETECTING-APP-MISBEHAVIORS-BASED-ON-WIRELESS-TRAFFIC-FINGERPRINT"><a href="#DETECTING-APP-MISBEHAVIORS-BASED-ON-WIRELESS-TRAFFIC-FINGERPRINT" class="headerlink" title="DETECTING APP MISBEHAVIORS BASED ON WIRELESS TRAFFIC FINGERPRINT"></a>DETECTING APP MISBEHAVIORS BASED ON WIRELESS TRAFFIC FINGERPRINT</h2><p>核心思想是，总结出各个状态时，发送和接收的数据包的个数和时间间隔。</p>
+<p>以此来标记相应的状态和转移条件。</p>
+<p>（其他内容多涉及硬件，见原文）</p>
+<h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><p>该系统易于移植，适用范围广（相较于之前的工作中需要修改特定应用）。</p>
+<p>并且利用侧信道的方式，能够以第三方视角，巧妙地监测智能设备行为。具有较高的准确率。</p>
+<p>对于一些恶意行为能够高效地辨别。</p>
+<p>另外，本文中还提到了。这种测信道方式可能被应用于一些泄露用户隐私地攻击，提供了研究方向。</p>
+<p>但是本文由于选择的平台为三星SmartThings，大多数设备通信使用ZigBee和Z-wave，而国内许多设备则通过BLE方式通信，而此通信协议在本文中不涉及，还有待进一步研究。</p>
+<p>Posted by GoSSIP Nov 22 nd , 2018</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/12/11/利用Aircrack-ng进行WIFI破解/">
+        利用Aircrack-ng进行WIFI破解 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Alex. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
