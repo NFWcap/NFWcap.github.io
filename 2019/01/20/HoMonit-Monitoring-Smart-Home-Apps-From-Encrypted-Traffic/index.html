@@ -189,14 +189,14 @@
         <div class="col-md-8 col-md-offset-2">
       		<p>本文以三星SmartThings平台为研究对象，提供了一个能够在加密的无线信道中监控物联网设备的系统。</p>
 <a id="more"></a>
-<h1 id="HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic"><a href="#HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic" class="headerlink" title="HoMonit_ Monitoring Smart Home Apps From Encrypted Traffic"></a>HoMonit_ Monitoring Smart Home Apps From Encrypted Traffic</h1><p>出处：CCS’18</p>
+<h1 id="HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic"><a href="#HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic" class="headerlink" title="HoMonit_ Monitoring Smart Home Apps From Encrypted Traffic"></a><strong>HoMonit_ Monitoring Smart Home Apps From Encrypted Traffic</strong></h1><p>出处：CCS’18</p>
 <p>作者：Wei Zhang, Yan Meng, Yugeng Liu, Xiaokuan Zhang, Yinqian Zhang, Haojin Zhu</p>
 <p>单位：SJTU, OSU</p>
 <p>原文：<a href="https://dl.acm.org/citation.cfm?id=3243820" target="_blank" rel="noopener">https://dl.acm.org/citation.cfm?id=3243820</a></p>
 <p>转自：<a href="https://securitygossip.com/blog/2018/11/22/homonit-monitoring-smart-home-apps-from-encrypted-traffic-dot-pdf/" target="_blank" rel="noopener">https://securitygossip.com/blog/2018/11/22/homonit-monitoring-smart-home-apps-from-encrypted-traffic-dot-pdf/</a></p>
-<h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p>本文以三星SmartThings平台为研究对象，提供了一个能够在加密的无线信道中监控物联网设备的系统。</p>
+<h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a><strong>ABSTRACT</strong></h2><p>本文以三星SmartThings平台为研究对象，提供了一个能够在加密的无线信道中监控物联网设备的系统。</p>
 <p>在26th USENIX Security Symposium中有一篇类似的文章（与本文中提到的之前的工作较为吻合），同样以三星的物联网平台为研究对象，通过分析传感器数据和源码，对物联网设备实际的越权行为进行了分析并提供了监控系统。</p>
-<h2 id="INTRODUCTION"><a href="#INTRODUCTION" class="headerlink" title="INTRODUCTION"></a>INTRODUCTION</h2><p>Samsung SmartThings,Apple HomeKit,Google Brilo and Weave,Vera Control Vera以及AllSeen Alliance AllJoyn为代表的物联网平台为不同厂商的智能设备提供了统一的标准，并提供设备之间的通信服务（通过网关或云服务器），将不同设备生产商的产品结合起来。</p>
+<h2 id="INTRODUCTION"><a href="#INTRODUCTION" class="headerlink" title="INTRODUCTION"></a><strong>INTRODUCTION</strong></h2><p>Samsung SmartThings,Apple HomeKit,Google Brilo and Weave,Vera Control Vera以及AllSeen Alliance AllJoyn为代表的物联网平台为不同厂商的智能设备提供了统一的标准，并提供设备之间的通信服务（通过网关或云服务器），将不同设备生产商的产品结合起来。</p>
 <p>2015年，三星的SmartThings已经是最大的物联网平台，集成了521款应用。</p>
 <p>之前的工作中，对于物联网平台的安全和隐私保护主要有三种方式： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、修改物联网平台应用，添加信息流控制的代码</span><br><span class="line">2、基于上下文的权限管理系统，帮助用户分配权限</span><br><span class="line">3、对智能设备源码进行分析后进行基于上下文的权限管理</span><br></pre></td></tr></table></figure>
@@ -204,27 +204,27 @@
 <p>HoMonit是一个能够从加密的无线通信信道中对智能设备进行监控的系统。其核心是DFA匹配算法。</p>
 <p>核心思想是，每个智能设备的行为都遵循一种确定的DFA模型，模型中的状态能够表示app运行的状态。</p>
 <p>首先，从智能设备的网站上获取源码和文档结合app UI建立一个DFA模型。</p>
-<p>然后，通过对无线网络痛惜的侧信道分析，对加密的无线通信信道进行监控，从而能够对DFA模型中的状态转换进行分析。</p>
+<p>然后，通过对无线网络通信的侧信道分析，对加密的无线通信信道进行监控，从而能够对DFA模型中的状态转换进行分析。</p>
 <p>而侧信道中，对加密数据的监控，基于对数据包大小和间隔的观察。</p>
 <p>一旦智能设备的运行出现了DFA模型中不包含的状态。即可以判断该设备出现了异常行为，检测出这是一个恶意的应用。</p>
-<p>在对该系统的评估中，本文对60款开源应用进行修改，使其模拟恶意行为。结果显示，该系统能够搞笑的检测出几种恶意行为。</p>
+<p>在对该系统的评估中，本文对60款开源应用进行修改，使其模拟恶意行为。结果显示，该系统能够有效的检测出几种恶意行为。</p>
 <p>主要贡献：  1、新的技术：能够通过对源码、应用的UI分析构建出DFA模型；  侧信道分析无线通信信道的方法 2、新的系统：HoMonit（不需要与厂商合作）能够在第三方视角分析SmartThings平台的智能设备恶意行为。 3、开源数据集：在对系统评估时使用的60个修改过的恶意应用已经公开</p>
-<h2 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h2><p>三星SmartThings涉及到三种底层通信协议ZigBee、Z-Wave和Wi-Fi,通过一个中继器完成应用和设备之间的通信。</p>
+<h2 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a><strong>BACKGROUND</strong></h2><p>三星SmartThings涉及到三种底层通信协议ZigBee、Z-Wave和Wi-Fi,通过一个中继器完成应用和设备之间的通信。</p>
 <p><img src="/2019/01/20/HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic/2.png" alt="2"></p>
 <p>在SmartThings平台上，设备使用ZigBee、Z-Wave占据了百分之80左右的份额。这两种协议都采用了128bits的AES加密。</p>
 <p>本文中，设计的恶意软件，主要存在两种恶意行为：获取额外的权限和欺骗行为（欺骗服务器）。</p>
-<h2 id="MOTIVATIONS-AND-INSIGHTS"><a href="#MOTIVATIONS-AND-INSIGHTS" class="headerlink" title="MOTIVATIONS AND INSIGHTS"></a>MOTIVATIONS AND INSIGHTS</h2><p>本文中设计的系统较之前的工作，更加通用，它设计时以整个平台的角度出发。而不需要对特定应用进行修改。</p>
+<h2 id="MOTIVATIONS-AND-INSIGHTS"><a href="#MOTIVATIONS-AND-INSIGHTS" class="headerlink" title="MOTIVATIONS AND INSIGHTS"></a><strong>MOTIVATIONS AND INSIGHTS</strong></h2><p>本文中设计的系统较之前的工作，更加通用，它设计时以整个平台的角度出发。而不需要对特定应用进行修改。</p>
 <p>HoMonit的设计，基于两个规律。一是，为了降低能耗智能设备的洗一大多设计为低传输速率，并且尽量减少数据冗余。二是，中继器和设备之间的通信，大多存在一些自定义的标记字段。</p>
 <p><img src="/2019/01/20/HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic/3.png" alt="3"></p>
 <p>本文的设计思想，如图所示。</p>
 <p>以动态传感器驱动开关为例。</p>
 <p>本例中，定义两种行为（motion.active,switch.on），三个状态。</p>
 <p>纵坐标表示数据包大小，横坐标表示时间。当检测到数据包变化如图中情形时，就判定发生了相应的动作。并产生状态转换。</p>
-<h2 id="DFA-BUILDING-VIA-SMARTAPP-ANALYSIS"><a href="#DFA-BUILDING-VIA-SMARTAPP-ANALYSIS" class="headerlink" title="DFA BUILDING VIA SMARTAPP ANALYSIS"></a>DFA BUILDING VIA SMARTAPP ANALYSIS</h2><p>选择DFA来描绘智能应用得原因有两点：  1、智能应用管理有限数量的设备 2、智能设备会在满足条件得情况下由智能应用驱动产生状态变化</p>
+<h2 id="DFA-BUILDING-VIA-SMARTAPP-ANALYSIS"><a href="#DFA-BUILDING-VIA-SMARTAPP-ANALYSIS" class="headerlink" title="DFA BUILDING VIA SMARTAPP ANALYSIS"></a><strong>DFA BUILDING VIA SMARTAPP ANALYSIS</strong></h2><p>选择DFA来描绘智能应用得原因有两点：  1、智能应用管理有限数量的设备 2、智能设备会在满足条件得情况下由智能应用驱动产生状态变化</p>
 <p>这与DFA的有限状态和转移条件的特性相吻合。</p>
-<h3 id="DFA-Builing-for-Open-source-Apps"><a href="#DFA-Builing-for-Open-source-Apps" class="headerlink" title="DFA Builing for Open-source Apps"></a>DFA Builing for Open-source Apps</h3><p>选择DFA来描绘智能应用得原因有两点：  1、智能应用管理有限数量的设备 2、智能设备会在满足条件得情况下由智能应用驱动产生状态变化</p>
+<h3 id="DFA-Builing-for-Open-source-Apps"><a href="#DFA-Builing-for-Open-source-Apps" class="headerlink" title="DFA Builing for Open-source Apps"></a><strong>DFA Builing for Open-source Apps</strong></h3><p>选择DFA来描绘智能应用得原因有两点：  1、智能应用管理有限数量的设备 2、智能设备会在满足条件得情况下由智能应用驱动产生状态变化</p>
 <p>这与DFA的有限状态和转移条件的特性相吻合。</p>
-<h3 id="DFA-Builing-for-Open-source-Apps-1"><a href="#DFA-Builing-for-Open-source-Apps-1" class="headerlink" title="DFA Builing for Open-source Apps"></a>DFA Builing for Open-source Apps</h3><p>对于开源应用，通过进行对源码的静态分析来建立DFA模型。</p>
+<h3 id="DFA-Builing-for-Open-source-Apps-1"><a href="#DFA-Builing-for-Open-source-Apps-1" class="headerlink" title="DFA Builing for Open-source Apps"></a><strong>DFA Builing for Open-source Apps</strong></h3><p>对于开源应用，通过进行对源码的静态分析来建立DFA模型。</p>
 <p>首先将源代码转换为AST抽象语法树。</p>
 <p>再将AST转换为DFA。</p>
 <p>1、建立状态集合</p>
@@ -232,16 +232,16 @@
 <p>2、确定转移条件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过subscribe和handler方法（Groovy语法，</span><br><span class="line">类似开启线程执行某个特定的与设备交互的功能）来确定转移条件。</span><br></pre></td></tr></table></figure>
 <p>使用该方法对181个应用进行了测试，其中150个成功建立了DFA模型（82.9%）</p>
-<h3 id="DFA-Builing-for-Closed-source-Apps"><a href="#DFA-Builing-for-Closed-source-Apps" class="headerlink" title="DFA Builing for Closed-source Apps"></a>DFA Builing for Closed-source Apps</h3><p><img src="/2019/01/20/HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic/4.png" alt="4"></p>
+<h3 id="DFA-Builing-for-Closed-source-Apps"><a href="#DFA-Builing-for-Closed-source-Apps" class="headerlink" title="DFA Builing for Closed-source Apps"></a><strong>DFA Builing for Closed-source Apps</strong></h3><p><img src="/2019/01/20/HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic/4.png" alt="4"></p>
 <p>对于闭源应用，则通过在应用UI中的语义分析来构建DFA模型。</p>
 <p>在用户首次安装应用进行授权时，所分配的权限能够反映出一些有效信息。所以我们使用adb命令中的uiautomator来将UI hierarchy转换成xml获取应用的权限信息。</p>
 <p>并且可以从String.xml中得到一些有用的信息。例如一些应用中涉及场景的字符串。</p>
 <p>在应用添加设备时，我们认为可选的设备都具备该应用能够执行的某种功能。可以通过这种方式缩小范围。另外，应用的功能往往与某个名词有关联（例如water 与water sensor有联系）</p>
 <p>当通过各种方式确定了应用具有的功能之后，接下来需要确定每个功能对应的参数和指令。这些信息可以先从官方文档中得到，并通过语义分析将动词和指令或参数匹配。（例如when water is sensed能够与water的wet参数匹配）</p>
-<h2 id="DETECTING-APP-MISBEHAVIORS-BASED-ON-WIRELESS-TRAFFIC-FINGERPRINT"><a href="#DETECTING-APP-MISBEHAVIORS-BASED-ON-WIRELESS-TRAFFIC-FINGERPRINT" class="headerlink" title="DETECTING APP MISBEHAVIORS BASED ON WIRELESS TRAFFIC FINGERPRINT"></a>DETECTING APP MISBEHAVIORS BASED ON WIRELESS TRAFFIC FINGERPRINT</h2><p>核心思想是，总结出各个状态时，发送和接收的数据包的个数和时间间隔。</p>
+<h2 id="DETECTING-APP-MISBEHAVIORS-BASED-ON-WIRELESS-TRAFFIC-FINGERPRINT"><a href="#DETECTING-APP-MISBEHAVIORS-BASED-ON-WIRELESS-TRAFFIC-FINGERPRINT" class="headerlink" title="DETECTING APP MISBEHAVIORS BASED ON WIRELESS TRAFFIC FINGERPRINT"></a><strong>DETECTING APP MISBEHAVIORS BASED ON WIRELESS TRAFFIC FINGERPRINT</strong></h2><p>核心思想是，总结出各个状态时，发送和接收的数据包的个数和时间间隔。</p>
 <p>以此来标记相应的状态和转移条件。</p>
 <p>（其他内容多涉及硬件，见原文）</p>
-<h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><p>该系统易于移植，适用范围广（相较于之前的工作中需要修改特定应用）。</p>
+<h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a><strong>Comment</strong></h2><p>该系统易于移植，适用范围广（相较于之前的工作中需要修改特定应用）。</p>
 <p>并且利用侧信道的方式，能够以第三方视角，巧妙地监测智能设备行为。具有较高的准确率。</p>
 <p>对于一些恶意行为能够高效地辨别。</p>
 <p>另外，本文中还提到了。这种测信道方式可能被应用于一些泄露用户隐私地攻击，提供了研究方向。</p>
