@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>关于Python深拷贝和浅拷贝的区别 | 帽子不太白</title>
+  <title>关于Python collections.defaultdict()与dict的使用和区别 | 帽子不太白</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -173,8 +173,8 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2019-02-22T01:19:57.000Z" itemprop="datePublished">
-          2019-02-22
+      <time datetime="2019-03-05T02:22:14.000Z" itemprop="datePublished">
+          2019-03-05
       </time>
     
     
@@ -183,42 +183,55 @@
     
     
 </span>
-                <h1>关于Python深拷贝和浅拷贝的区别</h1>
+                <h1>关于Python collections.defaultdict()与dict的使用和区别</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>深入浅出的对Python的深拷贝和浅拷贝进行区分</p>
+      		<p>collections.defaultdict()的用法和同普通dict的区别以及示例</p>
 <a id="more"></a>
-<p>在Python中，对象赋值实际上是对象的引用。当创建一个对象，然后把它赋给另一个变量的时候，python并没有拷贝这个对象，而只是拷贝了这个对象的引用</p>
-<p>通常有三种方法：</p>
-<h2 id="赋值引用"><a href="#赋值引用" class="headerlink" title="赋值引用"></a>赋值引用</h2><ul>
-<li>直接赋值,默认浅拷贝传递对象的引用而已,原始列表改变，被赋值的b也会做相同的改变，a和b都指向同一个对象。</li>
+<h2 id="dict-setdefault"><a href="#dict-setdefault" class="headerlink" title="dict.setdefault()"></a>dict.setdefault()</h2><p>​    在说明<code>collections.defaultdict()</code>之前，我们首先要提一下<code>setdefault()</code>方法。</p>
+<p>​    Python 字典 setdefault() 函数和get()方法类似, 如果键不存在于字典中，将会添加键并将值设为默认值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dict.setdefault(key, default=None)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>key  – 查找的键值</li>
+<li>default – 键不存在时，需要设置的默认值</li>
+<li>返回值：如果字典中包含有给定键，则返回该键对应的值，否则返回为该键设置的值。</li>
 </ul>
-<p><img src="/2019/02/22/关于Python深拷贝和浅拷贝的区别/直接赋值.png" alt="直接赋值"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=[1,2,3,[&quot;a&quot;,&quot;b&quot;]]</span><br><span class="line">&gt;&gt;&gt; b=a</span><br><span class="line">&gt;&gt;&gt; print b</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;]]</span><br><span class="line">&gt;&gt;&gt; a.append(5)</span><br><span class="line">&gt;&gt;&gt; print a;print b</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;], 5]</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;], 5]</span><br></pre></td></tr></table></figure>
-<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><ul>
-<li>copy浅拷贝，没有拷贝子对象，所以原始数据改变，子对象会改变</li>
-</ul>
-<p><img src="/2019/02/22/关于Python深拷贝和浅拷贝的区别/浅拷贝.png" alt="浅拷贝"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import copy</span><br><span class="line">&gt;&gt;&gt; a=[1,2,3,[&quot;a&quot;,&quot;b&quot;]]</span><br><span class="line">&gt;&gt;&gt; c=copy.copy(a)</span><br><span class="line">&gt;&gt;&gt; print a;print c</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;]]</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;]]</span><br><span class="line">&gt;&gt;&gt; a.append(5)</span><br><span class="line">&gt;&gt;&gt; print a;print c</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;], 5]</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;]]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; a[3]</span><br><span class="line">[&apos;a&apos;, &apos;b&apos;]</span><br><span class="line">&gt;&gt;&gt; a[3].append(&apos;cccc&apos;)</span><br><span class="line">&gt;&gt;&gt; print a;print c</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;, &apos;cccc&apos;], 5]</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;, &apos;cccc&apos;]] 里面的子对象被改变了</span><br></pre></td></tr></table></figure>
-<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><ul>
-<li>深拷贝，包含对象里面的自对象的拷贝，所以原始对象的改变不会造成深拷贝里任何子元素的改变</li>
-</ul>
-<p><img src="/2019/02/22/关于Python深拷贝和浅拷贝的区别/深拷贝.png" alt="深拷贝"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import copy</span><br><span class="line">&gt;&gt;&gt; a=[1,2,3,[&quot;a&quot;,&quot;b&quot;]]</span><br><span class="line">&gt;&gt;&gt; d=copy.deepcopy(a)</span><br><span class="line">&gt;&gt;&gt; print a;print d</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;]]</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;]]始终没有改变</span><br><span class="line">&gt;&gt;&gt; a.append(5)</span><br><span class="line">&gt;&gt;&gt; print a;print d</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;], 5]</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;]]始终没有改变</span><br><span class="line">&gt;&gt;&gt; a[3]</span><br><span class="line">[&apos;a&apos;, &apos;b&apos;]</span><br><span class="line">&gt;&gt;&gt; a[3].append(&quot;ccccc&quot;)</span><br><span class="line">&gt;&gt;&gt; print a;print d</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;, &apos;ccccc&apos;], 5]</span><br><span class="line">[1, 2, 3, [&apos;a&apos;, &apos;b&apos;]]  始终没有改变</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; dict = &#123;&apos;name&apos;:&apos;Alex&apos;,&apos;age&apos;:23&#125;</span><br><span class="line">&gt;&gt;&gt; print(&quot;Value : %s&quot; %dict.setdefault(&apos;name&apos;,None))</span><br><span class="line">Value : Alex</span><br><span class="line">&gt;&gt;&gt; print(&quot;Value : %s&quot; %dict.setdefault(&apos;sex&apos;,&apos;man&apos;))</span><br><span class="line">Value : man</span><br><span class="line">&gt;&gt;&gt; dict</span><br><span class="line">&#123;&apos;name&apos;: &apos;Alex&apos;, &apos;age&apos;: 23, &apos;sex&apos;: &apos;man&apos;&#125;</span><br></pre></td></tr></table></figure>
+<p>##collections.defaultdict()</p>
+<p>Python中通过Key访问字典，当Key不存在时，会引发‘KeyError’异常。为了避免这种情况的发生，可以使用collections类中的defaultdict()方法来为字典提供默认值。</p>
+<p>语法格式： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">collections.defaultdict([default_factory[, …]])</span><br></pre></td></tr></table></figure>
+<p>该函数返回一个类似字典的对象。defaultdict是Python内建字典类（dict）的一个子类，它重写了方法 <em>missing</em>(key)，增加了一个可写的实例变量default_factory,实例变量default_factory被missing()方法使用，如果该变量存在，则用以初始化构造器，如果没有，则为None。其它的功能和dict一样。</p>
+<p>第一个参数为default_factory属性提供初始值，默认为None；其余参数包括关键字参数（keyword arguments）的用法，和dict构造器用法一样。</p>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>​    使用list作第一个参数，可以很容易将键-值对序列转换为列表字典。collections.defaultdict(list)使用起来效果和我们上面提到的dict.setdefault()比较相似，这种方法会和dict.setdefault()等价，但是要更快。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from collections import defaultdict</span><br><span class="line">s=[(&apos;yellow&apos;,1),(&apos;blue&apos;, 2), (&apos;yellow&apos;, 3), (&apos;blue&apos;, 4), (&apos;red&apos;, 1)]</span><br><span class="line">d=defaultdict(list)</span><br><span class="line">for k, v in s:</span><br><span class="line">    d[k].append(v)</span><br><span class="line">a=sorted(d.items())</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<p>运行结果为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[(&apos;blue&apos;, [2, 4]), (&apos;red&apos;, [1]), (&apos;yellow&apos;, [1, 3])]</span><br></pre></td></tr></table></figure>
+<p>当字典中没有的键第一次出现时，default_factory自动为其返回一个空列表，list.append()会将值添加进新列表；再次遇到相同的键时，list.append()将其它值再添加进该列表。</p>
+<p>dict.setdefault()的用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s = [(&apos;yellow&apos;, 1), (&apos;blue&apos;, 2), (&apos;yellow&apos;, 3), (&apos;blue&apos;, 4), (&apos;red&apos;, 1)]</span><br><span class="line">d=&#123;&#125;</span><br><span class="line">for k, v in s:</span><br><span class="line">    d.setdefault(k,[]).append(v)</span><br><span class="line">print(&apos;\n&apos;,d)</span><br><span class="line">a=sorted(d.items())</span><br><span class="line">print(&apos;\n&apos;,a)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&apos;yellow&apos;: [1, 3], &apos;blue&apos;: [2, 4], &apos;red&apos;: [1]&#125;</span><br><span class="line"></span><br><span class="line">[(&apos;blue&apos;, [2, 4]), (&apos;red&apos;, [1]), (&apos;yellow&apos;, [1, 3])]</span><br></pre></td></tr></table></figure>
+<h3 id="int"><a href="#int" class="headerlink" title="int"></a>int</h3><p>将default_factory设为int时，可以被用来计数</p>
+<p>defaultdict(int) 这里的d其实是生成了一个默认为0的带key的数据字典。你可以想象成 d[key] = int default ，d[k]所以可以直接读取 d[“m”] += 1 就是d[“m”] 就是默认值 0+1 = 1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from collections import defaultdict</span><br><span class="line">s = &apos;mississippi&apos;</span><br><span class="line">d = defaultdict(int)</span><br><span class="line">for k in s:</span><br><span class="line">    d[k] += 1</span><br><span class="line">print(&apos;\n&apos;,d)</span><br><span class="line">a=sorted(d.items())</span><br><span class="line">print(&apos;\n&apos;,a)</span><br></pre></td></tr></table></figure>
+<p>结果:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">defaultdict(&lt;class &apos;int&apos;&gt;, &#123;&apos;m&apos;: 1, &apos;i&apos;: 4, &apos;s&apos;: 4, &apos;p&apos;: 2&#125;)</span><br><span class="line"></span><br><span class="line">[(&apos;i&apos;, 4), (&apos;m&apos;, 1), (&apos;p&apos;, 2), (&apos;s&apos;, 4)]</span><br></pre></td></tr></table></figure>
+<p>字符串中的字母第一次出现时，字典中没有该字母，default_factory函数调用int()为其提供一个默认值0,加法操作将计算出每个字母出现的次数。</p>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>default_factory设为set时，可以用defaultdict建立集合字典（a dictionary of sets）。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from collections import defaultdict</span><br><span class="line">s = [(&apos;red&apos;, 1), (&apos;blue&apos;, 2), (&apos;red&apos;, 3), (&apos;blue&apos;, 4), (&apos;red&apos;, 1), (&apos;blue&apos;, 4)]</span><br><span class="line">d = defaultdict(set)</span><br><span class="line">for k, v in s:</span><br><span class="line">    d[k].add(v)</span><br><span class="line">print(&apos;\n&apos;,d)</span><br><span class="line">a=sorted(d.items())</span><br><span class="line">print(&apos;\n&apos;,a)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">defaultdict(&lt;class &apos;set&apos;&gt;, &#123;&apos;red&apos;: &#123;1, 3&#125;, &apos;blue&apos;: &#123;2, 4&#125;&#125;)</span><br><span class="line"></span><br><span class="line">[(&apos;blue&apos;, &#123;2, 4&#125;), (&apos;red&apos;, &#123;1, 3&#125;)]</span><br></pre></td></tr></table></figure>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2019/03/05/关于Python-collections-defaultdict-与dict的使用和区别/" style="float: left;">
-        ← 关于Python collections.defaultdict()与dict的使用和区别
-    </a>
     
-    
-    <a class="pull-right" href="/2019/01/20/HoMonit-Monitoring-Smart-Home-Apps-From-Encrypted-Traffic/">
-        HoMonit_ Monitoring Smart Home Apps From Encrypted Traffic →
+    <a class="pull-right" href="/2019/02/22/关于Python深拷贝和浅拷贝的区别/">
+        关于Python深拷贝和浅拷贝的区别 →
     </a>
     
 </nav>
