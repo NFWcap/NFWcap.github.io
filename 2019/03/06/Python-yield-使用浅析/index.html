@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>Python yield 使用浅析 | 帽子不太白</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="帽子不太白">
+    <meta name="author" content="Alex">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="帽子不太白" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://pwnable.kr/play.php" class="animsition-link">Pwnable.kr</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">帽子不太白</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2019-03-06T02:18:37.000Z" itemprop="datePublished">
+          2019-03-06
+      </time>
+    
+    
+    | 
+    <a href='/tags/Python/'>Python</a>
+    
+    
+</span>
+                <h1>Python yield 使用浅析</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>您可能听说过，带有 yield 的函数在 Python 中被称之为 generator（生成器），何谓 generator ？</p>
+<p>我们先抛开 generator，以一个常见的编程题目来展示 yield 的概念。</p>
+<a id="more"></a>
+<h2 id="如何生成斐波那契數列"><a href="#如何生成斐波那契數列" class="headerlink" title="如何生成斐波那契數列"></a>如何生成斐波那契數列</h2><p>斐波那契（Fibonacci）數列是一个非常简单的递归数列，除第一个和第二个数外，任意一个数都可由前两个数相加得到。用计算机程序输出斐波那契數列的前 N 个数是一个非常简单的问题，许多初学者都可以轻易写出如下函数：</p>
+<h5 id="1-简单输出斐波那契數列前-N-个数"><a href="#1-简单输出斐波那契數列前-N-个数" class="headerlink" title="1. 简单输出斐波那契數列前 N 个数"></a>1. 简单输出斐波那契數列前 N 个数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`def fab(max): ``   ``n, a, b = 0, 0, 1 ``   ``while n &lt; max: ``       ``print b ``       ``a, b = b, a + b ``       ``n = n + 1`</span><br></pre></td></tr></table></figure>
+<p>执行 fab(5)，我们可以得到如下输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&gt;&gt;&gt; fab(5) ``1 ``1 ``2 ``3 ``5`</span><br></pre></td></tr></table></figure>
+<p>结果没有问题，但有经验的开发者会指出，直接在 fab 函数中用 print 打印数字会导致该函数可复用性较差，因为 fab 函数返回 None，其他函数无法获得该函数生成的数列。</p>
+<p>要提高 fab 函数的可复用性，最好不要直接打印出数列，而是返回一个 List。以下是 fab 函数改写后的第二个版本：</p>
+<h5 id="2-输出斐波那契數列前-N-个数第二版"><a href="#2-输出斐波那契數列前-N-个数第二版" class="headerlink" title="2. 输出斐波那契數列前 N 个数第二版"></a>2. 输出斐波那契數列前 N 个数第二版</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`def fab(max): ``   ``n, a, b = 0, 0, 1 ``   ``L = [] ``   ``while n &lt; max: ``       ``L.append(b) ``       ``a, b = b, a + b ``       ``n = n + 1 ``   ``return L`</span><br></pre></td></tr></table></figure>
+<p>可以使用如下方式打印出 fab 函数返回的 List：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&gt;&gt;&gt; for n in fab(5): ``...     print n ``... ``1 ``1 ``2 ``3 ``5`</span><br></pre></td></tr></table></figure>
+<p>改写后的 fab 函数通过返回 List 能满足复用性的要求，但是更有经验的开发者会指出，该函数在运行中占用的内存会随着参数 max 的增大而增大，如果要控制内存占用，最好不要用 List</p>
+<p>来保存中间结果，而是通过 iterable 对象来迭代。例如，在 Python2.x 中，代码：</p>
+<h5 id="3-通过-iterable-对象来迭代"><a href="#3-通过-iterable-对象来迭代" class="headerlink" title="3. 通过 iterable 对象来迭代"></a>3. 通过 iterable 对象来迭代</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`for i in range(1000): pass`</span><br></pre></td></tr></table></figure>
+<p>会导致生成一个 1000 个元素的 List，而代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`for i in xrange(1000): pass`</span><br></pre></td></tr></table></figure>
+<p>则不会生成一个 1000 个元素的 List，而是在每次迭代中返回下一个数值，内存空间占用很小。因为 xrange 不返回 List，而是返回一个 iterable 对象。</p>
+<p>利用 iterable 我们可以把 fab 函数改写为一个支持 iterable 的 class，以下是第三个版本的 Fab：</p>
+<h5 id="4-第三个版本"><a href="#4-第三个版本" class="headerlink" title="4. 第三个版本"></a>4. 第三个版本</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`class Fab(object): ` `   ``def __init__(self, max): ``       ``self.max = max ``       ``self.n, self.a, self.b = 0, 0, 1 ` `   ``def __iter__(self): ``       ``return self ` `   ``def next(self): ``       ``if self.n &lt; self.max: ``           ``r = self.b ``           ``self.a, self.b = self.b, self.a + self.b ``           ``self.n = self.n + 1 ``           ``return r ``       ``raise StopIteration()`</span><br></pre></td></tr></table></figure>
+<p>Fab 类通过 next() 不断返回数列的下一个数，内存占用始终为常数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&gt;&gt;&gt; for n in Fab(5): ``...     print n ``... ``1 ``1 ``2 ``3 ``5`</span><br></pre></td></tr></table></figure>
+<p>然而，使用 class 改写的这个版本，代码远远没有第一版的 fab 函数来得简洁。如果我们想要保持第一版 fab 函数的简洁性，同时又要获得 iterable 的效果，yield 就派上用场了：</p>
+<h5 id="5-使用-yield-的第四版"><a href="#5-使用-yield-的第四版" class="headerlink" title="5. 使用 yield 的第四版"></a>5. 使用 yield 的第四版</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`def fab(max): ``    ``n, a, b = 0, 0, 1 ``    ``while n &lt; max: ``        ``yield b ``        ``# print b ``        ``a, b = b, a + b ``        ``n = n + 1 ` `&apos;&apos;&apos;`</span><br></pre></td></tr></table></figure>
+<p>第四个版本的 fab 和第一版相比，仅仅把 print b 改为了 yield b，就在保持简洁性的同时获得了 iterable 的效果。</p>
+<p>调用第四版的 fab 和第二版的 fab 完全一致：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&gt;&gt;&gt; for n in fab(5): ``...     print n ``... ``1 ``1 ``2 ``3 ``5`</span><br></pre></td></tr></table></figure>
+<p>简单地讲，yield 的作用就是把一个函数变成一个 generator，带有 yield 的函数不再是一个普通函数，Python 解释器会将其视为一个 generator，调用 fab(5) 不会执行 fab 函数，而是返回一个 iterable 对象！在 for 循环执行时，每次循环都会执行 fab 函数内部的代码，执行到 yield b 时，fab 函数就返回一个迭代值，下次迭代时，代码从 yield b 的下一条语句继续执行，而函数的本地变量看起来和上次中断执行前是完全一样的，于是函数继续执行，直到再次遇到 yield。</p>
+<p>也可以手动调用 fab(5) 的 next() 方法（因为 fab(5) 是一个 generator 对象，该对象具有 next() 方法），这样我们就可以更清楚地看到 fab 的执行流程：</p>
+<h5 id="清单-6-执行流程"><a href="#清单-6-执行流程" class="headerlink" title="清单 6. 执行流程"></a>清单 6. 执行流程</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&gt;&gt;&gt; f = fab(5) ``&gt;&gt;&gt; f.next() ``1 ``&gt;&gt;&gt; f.next() ``1 ``&gt;&gt;&gt; f.next() ``2 ``&gt;&gt;&gt; f.next() ``3 ``&gt;&gt;&gt; f.next() ``5 ``&gt;&gt;&gt; f.next() ``Traceback (most recent call last): `` ``File &quot;&lt;``stdin``&gt;&quot;, line 1, in &lt;``module``&gt; ``StopIteration`</span><br></pre></td></tr></table></figure>
+<p>当函数执行结束时，generator 自动抛出 StopIteration 异常，表示迭代完成。在 for 循环里，无需处理 StopIteration 异常，循环会正常结束。</p>
+<p>我们可以得出以下结论：</p>
+<p>一个带有 yield 的函数就是一个 generator，它和普通函数不同，生成一个 generator 看起来像函数调用，但不会执行任何函数代码，直到对其调用 next()（在 for 循环中会自动调用 next()）才开始执行。虽然执行流程仍按函数的流程执行，但每执行到一个 yield 语句就会中断，并返回一个迭代值，下次执行时从 yield 的下一个语句继续执行。看起来就好像一个函数在正常执行的过程中被 yield 中断了数次，每次中断都会通过 yield 返回当前的迭代值。</p>
+<p>yield 的好处是显而易见的，把一个函数改写为一个 generator 就获得了迭代能力，比起用类的实例保存状态来计算下一个 next() 的值，不仅代码简洁，而且执行流程异常清晰。</p>
+<p>如何判断一个函数是否是一个特殊的 generator 函数？可以利用 isgeneratorfunction 判断：</p>
+<h5 id="7-使用-isgeneratorfunction-判断"><a href="#7-使用-isgeneratorfunction-判断" class="headerlink" title="7. 使用 isgeneratorfunction 判断"></a>7. 使用 isgeneratorfunction 判断</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&gt;&gt;&gt; from inspect import isgeneratorfunction ``&gt;&gt;&gt; isgeneratorfunction(fab) ``True`</span><br></pre></td></tr></table></figure>
+<p>要注意区分 fab 和 fab(5)，fab 是一个 generator function，而 fab(5) 是调用 fab 返回的一个 generator，好比类的定义和类的实例的区别：</p>
+<h5 id="8-类的定义和类的实例"><a href="#8-类的定义和类的实例" class="headerlink" title="8. 类的定义和类的实例"></a>8. 类的定义和类的实例</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&gt;&gt;&gt; import types ``&gt;&gt;&gt; isinstance(fab, types.GeneratorType) ``False ``&gt;&gt;&gt; isinstance(fab(5), types.GeneratorType) ``True`</span><br></pre></td></tr></table></figure>
+<p>fab 是无法迭代的，而 fab(5) 是可迭代的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&gt;&gt;&gt; from collections import Iterable ``&gt;&gt;&gt; isinstance(fab, Iterable) ``False ``&gt;&gt;&gt; isinstance(fab(5), Iterable) ``True`</span><br></pre></td></tr></table></figure>
+<p>每次调用 fab 函数都会生成一个新的 generator 实例，各实例互不影响：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&gt;&gt;&gt; f1 = fab(3) ``&gt;&gt;&gt; f2 = fab(5) ``&gt;&gt;&gt; print &apos;f1:&apos;, f1.next() ``f1: 1 ``&gt;&gt;&gt; print &apos;f2:&apos;, f2.next() ``f2: 1 ``&gt;&gt;&gt; print &apos;f1:&apos;, f1.next() ``f1: 1 ``&gt;&gt;&gt; print &apos;f2:&apos;, f2.next() ``f2: 1 ``&gt;&gt;&gt; print &apos;f1:&apos;, f1.next() ``f1: 2 ``&gt;&gt;&gt; print &apos;f2:&apos;, f2.next() ``f2: 2 ``&gt;&gt;&gt; print &apos;f2:&apos;, f2.next() ``f2: 3 ``&gt;&gt;&gt; print &apos;f2:&apos;, f2.next() ``f2: 5`</span><br></pre></td></tr></table></figure>
+<h2 id="return-的作用"><a href="#return-的作用" class="headerlink" title="return 的作用"></a>return 的作用</h2><p>在一个 generator function 中，如果没有 return，则默认执行至函数完毕，如果在执行过程中 return，则直接抛出 StopIteration 终止迭代。</p>
+<h2 id="另一个例子"><a href="#另一个例子" class="headerlink" title="另一个例子"></a>另一个例子</h2><p>另一个 yield 的例子来源于文件读取。如果直接对文件对象调用 read() 方法，会导致不可预测的内存占用。好的方法是利用固定长度的缓冲区来不断读取文件内容。通过 yield，我们不再需要编写读文件的迭代类，就可以轻松实现文件读取：</p>
+<h5 id="9-另一个-yield-的例子"><a href="#9-另一个-yield-的例子" class="headerlink" title="9. 另一个 yield 的例子"></a>9. 另一个 yield 的例子</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`def read_file(fpath): ``   ``BLOCK_SIZE = 1024 ``   ``with open(fpath, &apos;rb&apos;) as f: ``       ``while True: ``           ``block = f.read(BLOCK_SIZE) ``           ``if block: ``               ``yield block ``           ``else: ``               ``return`</span><br></pre></td></tr></table></figure>
+<p>以上仅仅简单介绍了 yield 的基本概念和用法，yield 在 Python 3 中还有更强大的用法，我们会在后续文章中讨论。</p>
+<p>注：本文的代码均在 Python 2.7 中调试通过</p>
+<p><a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-python-yield/index.html" target="_blank" rel="noopener">转自</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2019/03/05/关于Python-collections-defaultdict-与dict的使用和区别/">
+        关于Python collections.defaultdict()与dict的使用和区别 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Alex. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
