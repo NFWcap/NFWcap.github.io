@@ -279,6 +279,83 @@
 <p>##P-1.36</p>
 <p>编写一个 Python程序，输入一个由空格分隔的单词列表，并输出列表中的每个单词出现的次数。在这一点上，你不需要担心效率，因为这个问题会在本书后面的部分予以解决。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def function():</span><br><span class="line">    str = input(&quot;Please input something :&quot;).split(&quot; &quot;)</span><br><span class="line">    keys = list(set(str))</span><br><span class="line">    result = dict(zip(keys,[0]*len(keys)))</span><br><span class="line">    for i in str:</span><br><span class="line">        result[i] += 1</span><br><span class="line">    return result</span><br><span class="line"></span><br><span class="line">print(function())</span><br></pre></td></tr></table></figure>
+<h1 id="重点难点"><a href="#重点难点" class="headerlink" title="重点难点"></a>重点难点</h1><ol>
+<li><p>使用两个<code>print</code>打印一行数据，更改<code>print</code>结尾参数：</p>
+<blockquote>
+<p>print(‘’,end = ‘ ‘)</p>
+</blockquote>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print (str.split( ))       # 以空格为分隔符</span><br><span class="line">print (str.split(&apos;i&apos;,1))   # 以 i 为分隔符</span><br><span class="line">print (str.split(&apos;w&apos;))     # 以 w 为分隔符</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>split()通过指定分隔符对字符串进行切片，如果参数 num 有指定值，则仅分隔 num+1 个子字符串</p>
+<ol start="3">
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.join(sequence)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>sequence – 要连接的元素序列。</p>
+</li>
+<li><p>返回值：返回通过指定字符连接序列中元素后生成的新字符串。</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str = &quot;-&quot;;</span><br><span class="line">seq = (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;); # 字符串序列</span><br><span class="line">print str.join( seq );</span><br><span class="line">&gt;&gt;&gt; a-b-c</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>chr()</code> 用一个范围在 range（256）内的（就是0～255）整数作参数，返回一个对应的字符。</p>
+</li>
+<li><p><code>combinations</code>(iterable, <em>r</em>)  创建一个迭代器，返回iterable中所有长度为r的子序列，返回的子序列中的项按输入iterable中的顺序排序:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list(combinations(range(3),2))</span><br><span class="line">[(0, 1), (0, 2), (1, 2)]</span><br><span class="line">&gt;&gt;&gt; list(combinations(range(3),3))</span><br><span class="line">[(0, 1, 2)]</span><br><span class="line">&gt;&gt;&gt; list(combinations(range(3),1))</span><br><span class="line">[(0,), (1,), (2,)]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>product</code>(<em>iterables[, </em>repeat<em>])  创建一个迭代器，生成表示</em>iterables*中的项目的笛卡尔积的元组，repeat表示重复生成序列的次数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list(product(range(3),repeat=1))</span><br><span class="line">[(0,), (1,), (2,)]</span><br><span class="line">&gt;&gt;&gt; list(product(range(3),repeat=2))</span><br><span class="line">[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]</span><br><span class="line">&gt;&gt;&gt; list(product(range(3),repeat=3))</span><br><span class="line">[(0, 0, 0), (0, 0, 1), (0, 0, 2), (0, 1, 0), (0, 1, 1), (0, 1, 2), (0, 2, 0), (0, 2, 1), (0, 2, 2), (1, 0, 0), (1, 0, 1), (1, 0, 2), (1, 1, 0), (1, 1, 1), (1, 1, 2), (1, 2, 0), (1, 2, 1), (1, 2, 2), (2, 0, 0), (2, 0, 1), (2, 0, 2), (2, 1, 0), (2, 1, 1), (2, 1, 2), (2, 2, 0), (2, 2, 1), (2, 2, 2)]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>filter()</code>函数：<strong>filter()</strong> 函数用于过滤序列，过滤掉不符合条件的元素，返回一个迭代器对象，如果要转换为列表，可以使用 <strong>list()</strong> 来转换。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter(function, iterable)</span><br></pre></td></tr></table></figure>
+<p>参数</p>
+<ul>
+<li>function – 判断函数。</li>
+<li>iterable – 可迭代对象。</li>
+</ul>
+<p>返回值：返回一个迭代器对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def is_odd(n):</span><br><span class="line">    return n % 2 == 1</span><br><span class="line"> </span><br><span class="line">tmplist = filter(is_odd, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])</span><br><span class="line">newlist = list(tmplist)</span><br><span class="line">print(newlist)</span><br><span class="line">输出结果 ：</span><br><span class="line">[1, 3, 5, 7, 9]</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li><p><code>strip()</code>函数：移除字符串头尾指定的字符（默认为空格或换行符）或字符序列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">str = &quot;00000003210Runoob01230000000&quot;; </span><br><span class="line">print str.strip( &apos;0&apos; );  # 去除首尾字符 0</span><br><span class="line"> </span><br><span class="line">str2 = &quot;   Runoob      &quot;;   # 去除首尾空格</span><br><span class="line">print str2.strip();</span><br><span class="line">以上实例输出结果如下：</span><br><span class="line">3210Runoob0123</span><br><span class="line">Runoob</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>zip()</code>函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的对象，这样做的好处是节约了不少的内存。</p>
+<p>我们可以使用 list() 转换来输出列表。</p>
+<p>如果各个迭代器的元素个数不一致，则返回列表长度与最短的对象相同，利用 <strong>*</strong> 号操作符，可以将元组解压为列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a = [1,2,3]</span><br><span class="line">&gt;&gt;&gt; b = [4,5,6]</span><br><span class="line">&gt;&gt;&gt; c = [4,5,6,7,8]</span><br><span class="line">&gt;&gt;&gt; zipped = zip(a,b)     # 返回一个对象</span><br><span class="line">&gt;&gt;&gt; zipped</span><br><span class="line">&lt;zip object at 0x103abc288&gt;</span><br><span class="line">&gt;&gt;&gt; list(zipped)  # list() 转换为列表</span><br><span class="line">[(1, 4), (2, 5), (3, 6)]</span><br><span class="line">&gt;&gt;&gt; list(zip(a,c))              # 元素个数与最短的列表一致</span><br><span class="line">[(1, 4), (2, 5), (3, 6)]</span><br><span class="line"> </span><br><span class="line">&gt;&gt;&gt; a1, a2 = zip(*zip(a,b))          # 与 zip 相反，zip(*) 可理解为解压，返回二维矩阵式</span><br><span class="line">&gt;&gt;&gt; list(a1)</span><br><span class="line">[1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; list(a2)</span><br><span class="line">[4, 5, 6]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>set()</strong> 函数创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;x = set(&apos;runoob&apos;)</span><br><span class="line">&gt;&gt;&gt; y = set(&apos;google&apos;)</span><br><span class="line">&gt;&gt;&gt; x, y</span><br><span class="line">(set([&apos;b&apos;, &apos;r&apos;, &apos;u&apos;, &apos;o&apos;, &apos;n&apos;]), set([&apos;e&apos;, &apos;o&apos;, &apos;g&apos;, &apos;l&apos;]))   # 重复的被删除</span><br><span class="line">&gt;&gt;&gt; x &amp; y         # 交集</span><br><span class="line">set([&apos;o&apos;])</span><br><span class="line">&gt;&gt;&gt; x | y         # 并集</span><br><span class="line">set([&apos;b&apos;, &apos;e&apos;, &apos;g&apos;, &apos;l&apos;, &apos;o&apos;, &apos;n&apos;, &apos;r&apos;, &apos;u&apos;])</span><br><span class="line">&gt;&gt;&gt; x - y         # 差集</span><br><span class="line">set([&apos;r&apos;, &apos;b&apos;, &apos;u&apos;, &apos;n&apos;])</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<ol start="11">
+<li>replace() 方法把字符串中的 old（旧字符串） 替换成 new(新字符串)，如果指定第三个参数max，则替换不超过 max 次。</li>
+</ol>
+<blockquote>
+<p>str.replace(old, new[, max])</p>
+</blockquote>
+<p>参数</p>
+<ul>
+<li>old – 将被替换的子字符串。</li>
+<li>new – 新字符串，用于替换old子字符串。</li>
+<li>max – 可选字符串, 替换不超过 max 次</li>
+</ul>
+<p>返回值:返回字符串中的 old（旧字符串） 替换成 new(新字符串)后生成的新字符串，如果指定第三个参数max，则替换不超过 max 次。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python3</span><br><span class="line"></span><br><span class="line">str = &quot;www.w3cschool.cc&quot;</span><br><span class="line">print (&quot;菜鸟教程旧地址：&quot;, str)</span><br><span class="line">print (&quot;菜鸟教程新地址：&quot;, str.replace(&quot;w3cschool.cc&quot;, &quot;runoob.com&quot;))</span><br><span class="line"></span><br><span class="line">str = &quot;this is string example....wow!!!&quot;</span><br><span class="line">print (str.replace(&quot;is&quot;, &quot;was&quot;, 3))</span><br><span class="line">以上实例输出结果如下：</span><br><span class="line">菜鸟教程旧地址： www.w3cschool.cc</span><br><span class="line">菜鸟教程新地址： www.runoob.com</span><br><span class="line">thwas was string example....wow!!!</span><br></pre></td></tr></table></figure>
+<ol start="12">
+<li><strong>shuffle()</strong> 方法将序列的所有元素随机排序。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line"> </span><br><span class="line">list = [20, 16, 10, 5];</span><br><span class="line">random.shuffle(list)</span><br><span class="line">print (&quot;随机排序列表 : &quot;,  list)</span><br><span class="line"> </span><br><span class="line">random.shuffle(list)</span><br><span class="line">print (&quot;随机排序列表 : &quot;,  list)</span><br><span class="line">以上实例运行后输出结果为：</span><br><span class="line">随机排序列表 :  [20, 5, 16, 10]</span><br><span class="line">随机排序列表 :  [5, 20, 10, 16]</span><br></pre></td></tr></table></figure>
+<ol start="13">
+<li><code>lstrip()</code>方法用于截掉字符串左边的空格或指定字符。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">str = &quot;     this is string example....wow!!!     &quot;;</span><br><span class="line">print( str.lstrip() );</span><br><span class="line">str = &quot;88888888this is string example....wow!!!8888888&quot;;</span><br><span class="line">print( str.lstrip(&apos;8&apos;) );</span><br><span class="line">以上实例输出结果如下：</span><br><span class="line">this is string example....wow!!!     </span><br><span class="line">this is string example....wow!!!8888888</span><br></pre></td></tr></table></figure>
+<p><code>rstrip()</code>删除 string 字符串末尾的指定字符（默认为空格）.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">str = &quot;     this is string example....wow!!!     &quot;</span><br><span class="line">print (str.rstrip())</span><br><span class="line">str = &quot;*****this is string example....wow!!!*****&quot;</span><br><span class="line">print (str.rstrip(&apos;*&apos;))</span><br><span class="line">以上实例输出结果如下：</span><br><span class="line">     this is string example....wow!!!</span><br><span class="line">*****this is string example....wow!!!</span><br></pre></td></tr></table></figure>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
