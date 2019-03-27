@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Python技巧之 format格式化函数 | 帽子不太白</title>
+  <title>2G-3G-4G网络结构演进过程 | 帽子不太白</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -173,152 +173,71 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2019-03-18T06:39:33.000Z" itemprop="datePublished">
-          2019-03-18
+      <time datetime="2019-03-27T14:36:31.000Z" itemprop="datePublished">
+          2019-03-27
       </time>
     
     
     | 
-    <a href='/tags/Python小技巧/'>Python小技巧</a>
+    <a href='/tags/移动网络/'>移动网络</a>
     
     
 </span>
-                <h1>Python技巧之 format格式化函数</h1>
+                <h1>2G-3G-4G网络结构演进过程</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>Python format格式化函数用于字符串格式化</p>
+      		<p>关于移动2G，3G，4G网络拓扑结构解析</p>
 <a id="more"></a>
-<h1 id="format格式化函数"><a href="#format格式化函数" class="headerlink" title="format格式化函数"></a>format格式化函数</h1><p>Python2.6 开始，新增了一种格式化字符串的函数 <strong>str.format()</strong>，它增强了字符串格式化的功能。</p>
-<p>基本语法是通过 <strong>{}</strong> 和 <strong>:</strong> 来代替以前的 <strong>%</strong> 。</p>
+<p>无线接入网：负责接收用户终端的无线信号，由此接入到通信网络；</p>
+<p>核心网：对用户数据的管理及具体业务处理，并作为承载网络提供到外部网络的接口。</p>
+<h2 id="一、GSM网络结构（2G）"><a href="#一、GSM网络结构（2G）" class="headerlink" title="一、GSM网络结构（2G）"></a><strong>一、GSM网络结构（2G）</strong></h2><p>通常，我们所说的2G网络指的就是基于GSM的网络，它的结构主要由四部分构成：</p>
+<p>移动台MS（Mobile Station），它的功能是负责无线信号的收发及处理；</p>
+<p>基站子系统BSS（Base Station Subsystem），它属于接入网部分，由基站收发信台BTS（Base Transceiver Station）和基站控制器BSC（Base Station Controller）两部分构成。BTS通过Um空中接口收到MS发送的无线信号，然后将其传送给BSC，在BSC负责无线资源的管理及配置（诸如功率控制，信道分配等），然后通过A接口传送至核心网部分；</p>
+<p>网络子系统NSS（Network and Switching Subsystem），它是核心网的核心部分，主要由MSC、VLR、HLR、AUC、EIR等功能实体组成。其中，移动业务交换中心MSC（Mobile service Switching Center）是NSS核心，负责处理用户具体业务；访问位置寄存器VLR（Visit Location Register）和归属位置寄存器HLR（Home Location Register）主要负责移动性管理及用户数据库管理的功能；鉴权中心AUC（Authentication Center）和设备识别寄存器EIR（Equipment Identity Register）主要负责安全性方面的功能；网关型GMSC负责提供接入外部网络接口；</p>
+<p>操作管理系统OMS（Operations Management System），它主要负责网络的监视，状态报告及故障诊断等，在此不作具体介绍。</p>
+<p>GSM网络结构图如下：</p>
+<p><img src="/2019/03/27/2G-3G-4G网络结构演进过程/2g.png" alt="2g"></p>
 <hr>
-<h3 id="format-函数可以接受不限个参数，位置可以不按顺序。"><a href="#format-函数可以接受不限个参数，位置可以不按顺序。" class="headerlink" title="format 函数可以接受不限个参数，位置可以不按顺序。"></a>format 函数可以接受不限个参数，位置可以不按顺序。</h3><p>实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;&quot;&#123;&#125; &#123;&#125;&quot;.format(&quot;hello&quot;, &quot;world&quot;)    # 不设置指定位置，按默认顺序</span><br><span class="line">&apos;hello world&apos;</span><br><span class="line"> </span><br><span class="line">&gt;&gt;&gt; &quot;&#123;0&#125; &#123;1&#125;&quot;.format(&quot;hello&quot;, &quot;world&quot;)  # 设置指定位置</span><br><span class="line">&apos;hello world&apos;</span><br><span class="line"> </span><br><span class="line">&gt;&gt;&gt; &quot;&#123;1&#125; &#123;0&#125; &#123;1&#125;&quot;.format(&quot;hello&quot;, &quot;world&quot;)  # 设置指定位置</span><br><span class="line">&apos;world hello world&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="二、GPRS叠加网络结构（2-5G）"><a href="#二、GPRS叠加网络结构（2-5G）" class="headerlink" title="二、GPRS叠加网络结构（2.5G）"></a><strong>二、GPRS叠加网络结构（2.5G）</strong></h2><p>从GSM网络（2G）演进到GPRS网络（2.5G），最主要的变化是引入了分组交换业务。原有的GSM网络是基于电路交换技术，不具备支持分组交换业务的功能。因此，为了支持分组业务，在原有GSM网络结构上增加了几个功能实体，相当与在原有网络基础上叠加了一小型网络，共同构成GPRS网络。</p>
+<p>接入网方面，在BSC上增加了分组控制单元PCU（Packet Control Unit），用以提供分组交换通道；</p>
+<p>核心网方面，增加了服务型GPRS支持节点SGSN（Service GPRS Supported Node）和网关型GPRS支持节点GGSN（Gateway GPRS Supported Node），功能方面与MSC和GMSC一致，只不过处理的是分组业务，外部网络接入IP网；</p>
+<p>从GPRS叠加网络结构开始，引入了两个概念。一个是电路交换域，一个是分组交换域，也就是我们常说的Cs域与Ps域。</p>
+<p>GPRS叠加网络结构图如下：</p>
+<p><img src="/2019/03/27/2G-3G-4G网络结构演进过程/2.5g.png" alt="2.5g"></p>
 <hr>
-<h3 id="设置参数实例："><a href="#设置参数实例：" class="headerlink" title="设置参数实例："></a>设置参数实例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;网站名：&#123;name&#125;, 地址 &#123;url&#125;&quot;.format(name=&quot;百度&quot;, url=&quot;www.baidu.com&quot;))</span><br><span class="line"> </span><br><span class="line"># 通过字典设置参数</span><br><span class="line">site = &#123;&quot;name&quot;: &quot;百度&quot;, &quot;url&quot;: &quot;www.baidu.com&quot;&#125;</span><br><span class="line">print(&quot;网站名：&#123;name&#125;, 地址 &#123;url&#125;&quot;.format(**site))</span><br><span class="line"> </span><br><span class="line"># 通过列表索引设置参数</span><br><span class="line">my_list = [&apos;百度&apos;, &apos;www.baidu.com&apos;]</span><br><span class="line">print(&quot;网站名：&#123;0[0]&#125;, 地址 &#123;0[1]&#125;&quot;.format(my_list))  # &quot;0&quot; 是必须的</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">网站名：百度, 地址 www.baidu.com</span><br><span class="line">网站名：百度, 地址 www.baidu.com</span><br><span class="line">网站名：百度, 地址 www.baidu.com</span><br></pre></td></tr></table></figure>
+<h2 id="三、UMTS网络结构（3G）"><a href="#三、UMTS网络结构（3G）" class="headerlink" title="三、UMTS网络结构（3G）"></a><strong>三、UMTS网络结构（3G）</strong></h2><p>通信技术发展到3G，在速率发面有了质的提高，而网络结构上，同样发生巨大变化。</p>
+<p>首先，伴随技术的发展，空中接口也随之改变。之前网络结构中的Um空中接口换成了Uu接口，而接入网与核心网接口也换成了Iu口；然后，在接入网方面，不再包含BTS和BSC，取而代之的是基站NodeB与无线网络控制器RNC（Radio Network Controller），功能方面与之前保持一致，在核心网方面基本与原有网络共用，无太大区别。</p>
+<p>NodeB的功能：主要完成射频处理和基带处理两大类工作。射频处理：主要完成发送或接收高频无线信号，以及高频无线信号和基带信号的相互转换功能；基带处理：主要完成信道编/译码、复用/解复用、扩频调制及解扩/解调功能。</p>
+<p>RNC的功能：主要负责控制和协调基站间配合工作，主要完成系统接入控制、承载控制、移动性管理、宏分集合并、无线资源管理等控制功能。</p>
+<p>CS域：电路交换，主要包括一些语音业务，也包括电路型数据业务，最常见的是传真业务；</p>
+<p>PS域：分组交换，主要是常见的数据业务，也包括流媒体业务、VOIP（voice over IP）等等。</p>
+<p>UMTS网络结构图如下：</p>
+<p><img src="/2019/03/27/2G-3G-4G网络结构演进过程/3g.png" alt="3g"></p>
 <hr>
-<h3 id="向str-format-传入对象："><a href="#向str-format-传入对象：" class="headerlink" title="向str.format()传入对象："></a>向str.format()传入对象：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class AssignValue(object):</span><br><span class="line">    def __init__(self, value):</span><br><span class="line">        self.value = value</span><br><span class="line">my_value = AssignValue(6)</span><br><span class="line">print(&apos;value 为: &#123;0.value&#125;&apos;.format(my_value))  # &quot;0&quot; 是可选的</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">value 为: 6</span><br></pre></td></tr></table></figure>
+<h2 id="四、LTE网络结构（4G）"><a href="#四、LTE网络结构（4G）" class="headerlink" title="四、LTE网络结构（4G）"></a><strong>四、LTE网络结构（4G）</strong></h2><p>很多人说所谓的4G，即LTE技术不是一种演进，而是一场变革。其实，我们不需要太多的了解技术细节，但从网络结构方面，我们就能看出一二。</p>
+<p>整个LTE网络从接入网和核心网方面分为E-UTRAN和EPC。首先，接入网方面，它不再包含两种功能实体，整个网络只有一种基站eNodeB，它包含了整个NodeB和部分RNC的功能，演进过程可以概括为：“少一层，多一口，胖基站”；其次，EPC（Evolved Packet Core）方面，它对之前的网络结构能够保持前向兼容，而自身结构方面，也不再有之前各种实体部分，取而代之的主要就换成了移动管理实体MME（Mobile Management Entity）与服务网关S-GW，分组数据网关，外部网络只接入IP网。</p>
+<p>1.无线接入网：</p>
+<p>少一层：四层组网架构变为三层，去掉了RNC(软切换功能也不复存在)，减少了基站和核心网之间信息交互的多节点开销，用户平面时延大大降低，系统复杂性降低；</p>
+<p>多一口：以往无线制式基站之间是没有连接的，而eNodeB直接通过<strong>X2接口</strong>有线连接，可以以光纤为载体，实现无线侧IP化传输，使得基站网元之间可以协调工作。当eNodeB互连后，形成类似于“mesh”的网络，避免某个基站成为孤点，增强了网络的健壮性；</p>
+<p>胖基站：eNodeB的功能由3G阶段的NodeB,RNC,SGSN,GGSN的部分功能演化而来，新加了系统接入控制、承载控制、移动性管理、无线资源管理、路由选择等。</p>
+<p>2.核心网：1）CS域的业务承载在PS域，实现了核心网的IP化。通常所说的“单一网络了架构”，就是指全网为基于分组业务的网络架构；</p>
+<p>​                    2）全网IP化：各网元节点间的接口也使用IP传输。互联网中的IP传输比无线通信中的ATM传输效率高，但IP传输是Best Effort的传输方式，缺乏QoS保障。LTE全网IP化的关键支撑就是端到端的QoS保障机制。</p>
+<p>​                    3）控制面和用户面相分离。</p>
+<p>LTE网络结构如下图：</p>
+<p> <img src="/2019/03/27/2G-3G-4G网络结构演进过程/LTE.png" alt="LTE"></p>
 <hr>
-<h3 id="数字格式化"><a href="#数字格式化" class="headerlink" title="数字格式化"></a>数字格式化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(&quot;&#123;:.2f&#125;&quot;.format(3.1415926));</span><br><span class="line">3.14</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>数字</th>
-<th>格式</th>
-<th>输出</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>3.1415926</td>
-<td>{:.2f}</td>
-<td>3.14</td>
-<td>保留小数点后两位</td>
-</tr>
-<tr>
-<td>3.1415926</td>
-<td>{:+.2f}</td>
-<td>+3.14</td>
-<td>带符号保留小数点后两位</td>
-</tr>
-<tr>
-<td>-1</td>
-<td>{:+.2f}</td>
-<td>-1.00</td>
-<td>带符号保留小数点后两位</td>
-</tr>
-<tr>
-<td>2.71828</td>
-<td>{:.0f}</td>
-<td>3</td>
-<td>不带小数</td>
-</tr>
-<tr>
-<td>5</td>
-<td>{:0&gt;2d}</td>
-<td>05</td>
-<td>数字补零 (填充左边, 宽度为2)</td>
-</tr>
-<tr>
-<td>5</td>
-<td>{:x&lt;4d}</td>
-<td>5xxx</td>
-<td>数字补x (填充右边, 宽度为4)</td>
-</tr>
-<tr>
-<td>10</td>
-<td>{:x&lt;4d}</td>
-<td>10xx</td>
-<td>数字补x (填充右边, 宽度为4)</td>
-</tr>
-<tr>
-<td>1000000</td>
-<td>{:,}</td>
-<td>1,000,000</td>
-<td>以逗号分隔的数字格式</td>
-</tr>
-<tr>
-<td>0.25</td>
-<td>{:.2%}</td>
-<td>25.00%</td>
-<td>百分比格式</td>
-</tr>
-<tr>
-<td>1000000000</td>
-<td>{:.2e}</td>
-<td>1.00e+09</td>
-<td>指数记法</td>
-</tr>
-<tr>
-<td>13</td>
-<td>{:10d}</td>
-<td>13</td>
-<td>右对齐 (默认, 宽度为10)</td>
-</tr>
-<tr>
-<td>13</td>
-<td>{:&lt;10d}</td>
-<td>13</td>
-<td>左对齐 (宽度为10)</td>
-</tr>
-<tr>
-<td>13</td>
-<td>{:^10d}</td>
-<td>13</td>
-<td>中间对齐 (宽度为10)</td>
-</tr>
-<tr>
-<td>11</td>
-<td>‘{:b}’.format(11) ‘{:d}’.format(11) ‘{:o}’.format(11) ‘{:x}’.format(11) ‘{:#x}’.format(11) ‘{:#X}’.format(11)</td>
-<td>1011 11 13 b 0xb 0XB</td>
-<td>进制</td>
-</tr>
-</tbody>
-</table>
-<p><strong>^</strong>, <strong>&lt;</strong>, <strong>&gt;</strong> 分别是居中、左对齐、右对齐，后面带宽度， <strong>:</strong> 号后面带填充的字符，只能是一个字符，不指定则默认是用空格填充。</p>
-<p><strong>+</strong> 表示在正数前显示 <strong>+</strong>，负数前显示 <strong>-</strong>；  （空格）表示在正数前加空格</p>
-<p>b、d、o、x 分别是二进制、十进制、八进制、十六进制。</p>
-<p>此外我们可以使用大括号 <strong>{}</strong> 来转义大括号，如下实例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print (&quot;&#123;&#125; 对应的位置是 &#123;&#123;0&#125;&#125;&quot;.format(&quot;runoob&quot;))</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">runoob 对应的位置是 &#123;0&#125;</span><br></pre></td></tr></table></figure>
+<p>从以上四幅结构图，基本就可以包括2G到4G网络结构的演进过程，过程中发生的变化也比较清晰，对比总结，可以得出两个趋势吧，也是众口相传，讲烂了的。不过，我从这几个连续的图能够有更感性的认识：一，网络结构趋向于实体减少，也就是网上书中所谓的扁平化，带来的好处就是减少成本，降低时延；二，所有的通信最终连接至全IP网络。</p>
+<p>转自：<a href="https://blog.csdn.net/tiyatiyatiya/article/details/25707871" target="_blank" rel="noopener">https://blog.csdn.net/tiyatiyatiya/article/details/25707871</a></p>
+
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2019/03/27/2G-3G-4G网络结构演进过程/" style="float: left;">
-        ← 2G-3G-4G网络结构演进过程
-    </a>
     
-    
-    <a class="pull-right" href="/2019/03/17/数据结构与算法-Python实现-课课后习题-1/">
-        数据结构与算法--Python实现 课课后习题(1) →
+    <a class="pull-right" href="/2019/03/18/Python技巧之-format格式化函数/">
+        Python技巧之 format格式化函数 →
     </a>
     
 </nav>
